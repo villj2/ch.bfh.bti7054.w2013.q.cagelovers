@@ -5,6 +5,6 @@
  * and open the template in the editor.
  */
 
-echo "cagelovers";
+echo "cagelovers 19:32 Uhr";
 
 ?>
