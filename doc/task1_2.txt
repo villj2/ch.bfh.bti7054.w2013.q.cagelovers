@@ -1,0 +1,64 @@
+Task 1.2:
+--------
+
+Type of products we want to sell:
+
+Wir verkaufen Fanartikel des Schauspielers Nicolas Cage. Die Fanartikel sind Alltagsgegenstände,
+Ausstellungsstücke und limitierte Sammlerobjekte. 
+
+Wir unterscheiden die Artikel in folgende Kategorien:
+- Kleider
+--T-Shirts
+--Hosen
+--Mützen
+-Poster
+-Kalender
+-Autogrammkarten
+-Schmuck
+--Halsketten
+--Piercings
+-Fussmatten
+-Autozubehör
+--Heckscheibenaufkleber
+--Anhänger für den Rückspiegel
+-Haushalt
+--Bettwäsche
+--Kissen
+-Puppen
+
+Die Kleider jeweils für Mann und Frau.
+
+Folgende Produkte haben zusätzliche Optionen:
+-Poster
+--Verschiedene Formate, 80cm x 60cm, 40cm x 30cm,75cm x 50cm
+-Kleider
+--Verschiedene Grössen, S,M,L,XL
+-Heckscheibenaufkleber
+--Verschiedene Grössen
+
+
+Erweiterungen:
+-Kalender
+--Der Kalender kann optional induviduell zusammengestellt werden, Auswahl aus verschiedenen Bildern.
+-Kissen
+--Der Stoff kann ausgewählt werden. Flauschig oder extra Flauschig.
+-Kleider
+--Die Farben (3 Farben) und Bilder (3) können selbst ausgewählt werden.
+-Puppe
+--Zusätzliche Artikel wie Töpfchen, Auto, Bettchen
+
+Auflistung der Produkte:
+-Tshirts (Kombination aus 3 Farben und 3 Bildern, 9 Ergebnisse, plus die jeweilige Grösse)
+-Hosen (kurz und lang, 2 Produkte, Unisize)
+-Mützen (2 Verschiedene Logos/Schriftzüge, Unisize)
+-Poster (3 Poster an 3 Grössen, 9 Ergebnisse)
+-Kalender (Standardprodukt oder eigene Kreation)
+-Autogrammkarten (3 Produkte)
+-Halskette ( 2 Produkte)
+-Piercings (2 Produkte)
+-Fussmatten (2 Produkte)
+-Heckscheibenaufkleber (3 Produkte)
+-Rückspiegelanhänger (1 Produkt)
+-Bettwäsche (1 Produkt in 3 Farben, 3 Ergebnisse)
+-Kissen (1 Produkt in 3 Farben und Auswahl Flauschig oder extra Flauschig, 6 Ergebnisse)
+-Puppe (1 Produkt mit 3 Erweiterungen, 8 Ergebnisse)
