@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="_assets/css/bootstrap.css" rel="stylesheet" media="screen">
-
+    <link href="_assets/css/site.css" rel="stylesheet" media="screen">
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
@@ -60,7 +61,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Release your Cage!</h1>
-        <p><?php echo "All hail to Cage. Written with php." ?></p>
+        <p><? echo "All hail to Cage. Written with php." ?></p>
         <p><!--<a class="btn btn-primary btn-lg">Learn more</a>--></p>
       </div>
     </div>
@@ -70,6 +71,7 @@
             <div class="col-lg-12">
                 <h2>Featured product</h2>
                 <p><img src="img/products/bed_320x240.jpg" /></p>
+                <p>Let your dreams be guided by Cage. Never slept that good.</p>
                 <p><a class="btn btn-default" href="#">View details</a></p>
             </div>
         </div>
