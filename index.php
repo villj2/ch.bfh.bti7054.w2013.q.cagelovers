@@ -1,7 +1,7 @@
 <?php include("templates/header.php") ?>
   
 <?php echo array_pop(explode("/", getcwd())) ?>
-
+<?php echo "test Danie eoscop ag" ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
