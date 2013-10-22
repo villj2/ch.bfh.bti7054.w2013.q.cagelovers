@@ -1,7 +1,11 @@
 <?php include("../templates/header.php") ?>
 
 
-<?php echo $_SERVER['REQUEST_URI'] ?>
+<?php
+
+        
+?>
+
 
 
 <?php include("../templates/footer.php") ?>

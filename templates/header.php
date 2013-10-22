@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     
-    <?php echo '<link href="/' . array_pop(explode('/', getcwd())) . '/_assets/css/bootstrap.css" rel="stylesheet" media="screen">' ?> 
-    <?php echo '<link href="/' . array_pop(explode('/', getcwd())) . '/_assets/css/site.css" rel="stylesheet" media="screen">' ?> 
+    <?php echo '<link href="/' . explode("/", $_SERVER['REQUEST_URI'])[1] . '/_assets/css/bootstrap.css" rel="stylesheet" media="screen">' ?> 
+    <?php echo '<link href="/' . explode("/", $_SERVER['REQUEST_URI'])[1] . '/_assets/css/site.css" rel="stylesheet" media="screen">' ?> 
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
