@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     
-    <?php echo '<link href="/' . explode("/", $_SERVER['REQUEST_URI'])[1] . '/_assets/css/bootstrap.css" rel="stylesheet" media="screen">' ?> 
-    <?php echo '<link href="/' . explode("/", $_SERVER['REQUEST_URI'])[1] . '/_assets/css/site.css" rel="stylesheet" media="screen">' ?> 
+    <?php echo '<link href="/cagelovers/_assets/css/bootstrap.css" rel="stylesheet" media="screen">' ?> 
+    <?php echo '<link href="/cagelovers/_assets/css/site.css" rel="stylesheet" media="screen">' ?> 
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="contact/">Contact</a></li>
+            <li><a href="/cagelovers/contact/">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
