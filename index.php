@@ -3,7 +3,10 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Release your Cage!</h1>
+          <div class="title-big">
+              <img src="/cagelovers/img/logo_128x170.png" />
+              <h1>Break out your Cage!</h1>
+          </div>
         <p><? echo "All hail to Cage. Written with php." ?></p>
         <p><!--<a class="btn btn-primary btn-lg">Learn more</a>--></p>
       </div>

@@ -6,10 +6,82 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
-}
+/* GENERAL
+/************************/
 
 body {
-    
+    color: #222;
+}
+
+.float-left {
+    float: left;
+}
+
+.btn-success {
+    color: #fcf6ea;
+    background-color: #706b68;
+    border-color: #706b68;
+}
+
+.btn-success:hover, .btn-success:focus {
+    background-color: #585451;
+    border-color: #585451;
+}
+
+.btn-primary {
+  color: #fcf6ea;
+  background-color: #d51743;
+  border-color: #d51743;
+}
+
+.btn-default {
+    color: #fcf6ea;
+    background-color: #a2000d;
+    border-color: #8e000c;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    color: #fcf6ea;
+    background-color: #8e000c;
+    border-color: #8e000c;
+}
+
+/* NAVIGATION
+/************************/
+
+.navbar-inverse {
+    background-color: #8e000c;
+    border-color: #8e000c;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fcf6ea;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fcf6ea;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fcf6ea;
+    background-color: #222222;
+}
+
+/* HOME
+/************************/
+.title-big {
+    position: relative;
+}
+
+.title-big h1 {
+    margin-top: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 140px;
+}
+
+.jumbotron {
+    background: #fcf6ea url("/cagelovers/img/cage_collage_603x304.jpg") repeat-x top center;
+    border-bottom: solid 3px #8e000c;
+    text-shadow: 2px 2px 6px #585451;
 }

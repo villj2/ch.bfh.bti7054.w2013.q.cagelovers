@@ -25,26 +25,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Cagelovers</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="/cagelovers/contact/">Contact</a></li>
+            <li><a href="#about">Produkte</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Anderes <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#">Kontakt</a></li>
+                <li><a href="#">AGB</a></li>
+                <li><a href="#">FAQ</a></li>
               </ul>
             </li>
           </ul>
+            
           <form class="navbar-form navbar-right">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
@@ -54,6 +49,13 @@
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
+            
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="./">DE</a></li>
+            <li><a href="../navbar-static-top/">FR</a></li>
+          </ul>
+            
         </div><!--/.navbar-collapse -->
+        
       </div>
     </div>
