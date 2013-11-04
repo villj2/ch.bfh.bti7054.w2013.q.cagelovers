@@ -85,3 +85,55 @@ body {
     border-bottom: solid 3px #8e000c;
     text-shadow: 2px 2px 6px #585451;
 }
+
+/* REGISTER
+/************************/
+.form-register {
+    width: 100%;
+}
+
+.form-register label {
+    display: inline-block;
+}
+
+.form-regsiter input {
+    display: inline-block;
+}
+
+.form-register select {
+    display: block;
+}
+
+.form-register ul {
+    padding-left: 10px;
+    list-style: none;
+}
+
+.form-register li {
+    margin-bottom: 10px;
+}
+
+.form-register .errors {
+    color: #8e000c;
+}
+
+.register-done a {
+    display: block;
+}
+
+/* MEDIA QUERIES
+/************************/
+@media (max-width: 768px) {
+}
+
+@media (min-width: 768px) {
+    .jumbotron {
+        margin-top: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    .jumbotron {
+        margin-top: 0;
+    }
+}

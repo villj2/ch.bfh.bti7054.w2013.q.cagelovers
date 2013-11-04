@@ -1,3 +1,21 @@
+<?php
+    
+    session_start();
+
+    // Language Handler
+    if((!isset($_GET['lang']) || ($_GET['lang'] != 1 || $_GET['lang'] != 2)) && isset($_GET['lang']) && ($_GET['lang'] == 1 || $_GET['lang'] == 2)) {
+        $_SESSION['lang'] = $_GET['lang'];
+    }
+    
+    // Handle active navi point
+    $NAVI_HOME = 'home';
+    $NAVI_PRODUCTS = 'products';
+    $navipoint = isset($_SESSION['navipoint']) ? $_SESSION['navipoint'] : $NAVI_HOME;
+    
+    echo $navipoint;
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,8 +46,18 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Produkte</a></li>
+              
+              <?php
+              
+                // HOME
+                $tmp = $navipoint == $NAVI_HOME ? '<li class="active">' : '<li>';
+                echo $tmp . '<a href="/cagelovers/">Home</a></li>';
+                
+                // PRODUCTS
+                $tmp = $navipoint == $NAVI_PRODUCTS ? '<li class="active">' : '<li>';
+                echo $tmp . '<a href="/cagelovers/products/">Produkte</a></li>';
+              ?>
+              
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Anderes <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -48,11 +76,26 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
+            <a href="/cagelovers/register/" class="btn btn-success">Register</a>
           </form>
             
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="./">DE</a></li>
-            <li><a href="../navbar-static-top/">FR</a></li>
+              
+              <?php
+                
+                if($_SESSION['lang'] == 2) {
+                    
+                    echo '<li class=""><a href="./?lang=1">DE</a></li>';
+                    echo '<li class="active"><a href="./?lang=2">FR</a></li>';
+                    
+                } else {
+                    
+                    echo '<li class="active"><a href="./?lang=1">DE</a></li>';
+                    echo '<li class=""><a href="./?lang=2">FR</a></li>';
+                }
+              
+              ?>
+              
           </ul>
             
         </div><!--/.navbar-collapse -->
