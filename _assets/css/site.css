@@ -137,3 +137,9 @@ body {
         margin-top: 0;
     }
 }
+
+/* LANG SWITCHER
+/************************/
+.lang-switcher {
+    margin-right: 5px !important;
+}

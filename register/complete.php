@@ -1,9 +1,9 @@
-<?php include("../templates/header.php") ?>
+<?php
 
-<?php 
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     
-    include("../appcode/User.php");
-    //session_start();
+    include("$root/cagelovers/appcode/Initializer.php") ;
+    include ("$root/cagelovers/templates/header.php");
     
     $user = unserialize($_SESSION['user']);
 

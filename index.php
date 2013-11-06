@@ -1,8 +1,12 @@
-<?php
-    session_start();
+<?php 
+    
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+    
+    include("$root/cagelovers/appcode/Initializer.php") ;
     $_SESSION['navipoint'] = 'home';
+    include ("$root/cagelovers/templates/header.php");
+    
 ?>
-<?php include("templates/header.php") ?>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">

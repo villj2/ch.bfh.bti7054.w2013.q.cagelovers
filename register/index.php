@@ -1,10 +1,11 @@
-<?php include("../templates/header.php") ?>
-
 <?php 
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     
-    include("../appcode/User.php");
+    include("$root/cagelovers/appcode/Initializer.php") ;
+    $_SESSION['navipoint'] = 'other';
+    include("$root/cagelovers/templates/header.php") ;
+    
 
-    //session_start();
     
     $formErrors = [];
 
