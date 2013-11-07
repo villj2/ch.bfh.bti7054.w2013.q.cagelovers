@@ -16,9 +16,18 @@
     <div class="row">
         <div class="col-lg-12">
             <div>Bei Fragen wenden Sie sich bitte an folgende Adresse.</div>
-            <div>
-                
-            </div>
+            <br />
+            <p>
+                Daniel Inversini
+                <br />
+                Hinterngasse 33
+                <br />
+                19330 &#77;&#252;&#108;&#108;&#104;&#97;&#117;&#115;&#101;&#110;
+            </p>
+            <br />
+            <p>Oder schreiben Sie eine Nachricht an <a href="mailto:info@cagelovers.com?subject=Sinnlose Anfrage">diese Adresse</a>.</p>
+            <br />
+            
         </div>
     </div>
 </div>
