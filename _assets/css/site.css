@@ -46,6 +46,15 @@ body {
     border-color: #8e000c;
 }
 
+.icon-delete {
+    color: #222;
+}
+
+.icon-delete:hover, .icon-delete:focus {
+    color: #8e000c;
+    text-decoration: none;
+}
+
 /* NAVIGATION
 /************************/
 
@@ -151,4 +160,22 @@ body {
 }
 .faq .answer {
     margin-bottom: 20px;
+}
+
+/* CHECKOUT
+/************************/
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info a {
+    display: block;
+    float: right;
+}
+
+.products-container .last {
+    text-align: right;
+}
+.prize-total {
+    float: right;
 }
