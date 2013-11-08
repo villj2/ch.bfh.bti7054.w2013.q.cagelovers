@@ -2,10 +2,7 @@
 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-    // Language Handler
-    if((!isset($_GET['lang']) || ($_GET['lang'] != 1 || $_GET['lang'] != 2)) && isset($_GET['lang']) && ($_GET['lang'] == 1 || $_GET['lang'] == 2)) {
-        $_SESSION['lang'] = $_GET['lang'];
-    }
+    
     
     // Handle active navi point
     $NAVI_HOME = 'home';
@@ -51,22 +48,22 @@
               
                 // HOME
                 $tmp = $navipoint == $NAVI_HOME ? '<li class="active">' : '<li>';
-                echo $tmp . '<a href="/cagelovers/">Home</a></li>';
+                echo $tmp . '<a href="/cagelovers/">' . $langDict->getKey("NAVI_HOME") . '</a></li>';
                 
                 // PRODUCTS
                 $tmp = $navipoint == $NAVI_PRODUCTS ? '<li class="active">' : '<li>';
-                echo $tmp . '<a href="/cagelovers/products/">Produkte</a></li>';
+                echo $tmp . '<a href="/cagelovers/products/">' . $langDict->getKey("NAVI_PRODUCTS") . '</a></li>';
                 
                 // PRODUCTS
                 $tmp = $navipoint == $NAVI_OTHER ? '<li class="dropdown active">' : '<li class="dropdown">';
                 echo $tmp;
               ?>
               
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Anderes <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $langDict->getKey("NAVI_OTHER") ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/cagelovers/contact/">Kontakt</a></li>
-                <li><a href="/cagelovers/agb/">AGB</a></li>
-                <li><a href="/cagelovers/faq/">FAQ</a></li>
+                <li><a href="/cagelovers/contact/"><?php echo $langDict->getKey("NAVI_CONTACT") ?></a></li>
+                <li><a href="/cagelovers/agb/"><?php echo $langDict->getKey("NAVI_AGB") ?></a></li>
+                <li><a href="/cagelovers/faq/"><?php echo $langDict->getKey("NAVI_FAQ") ?></a></li>
               </ul>
             </li>
           </ul>
@@ -91,12 +88,12 @@
                 if($_SESSION['lang'] == 2) {
                     
                     echo '<li class=""><a href="./?lang=1">DE</a></li>';
-                    echo '<li class="active"><a href="./?lang=2">FR</a></li>';
+                    echo '<li class="active"><a href="./?lang=2">EN</a></li>';
                     
                 } else {
                     
                     echo '<li class="active"><a href="./?lang=1">DE</a></li>';
-                    echo '<li class=""><a href="./?lang=2">FR</a></li>';
+                    echo '<li class=""><a href="./?lang=2">EN</a></li>';
                 }
               
               ?>

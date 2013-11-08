@@ -9,6 +9,11 @@ class User
     public $plz;
     public $city;
     public $email;
+    
+    public function User()
+    {
+        
+    }
 
     public function displayVar() {
         echo $this->var;
