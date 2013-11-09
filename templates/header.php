@@ -90,13 +90,13 @@
                 
                 if($_SESSION['lang'] == 2) {
                     
-                    echo '<li class=""><a href="./?lang=1">DE</a></li>';
-                    echo '<li class="active"><a href="./?lang=2">EN</a></li>';
+                    echo '<li class=""><a href="?lang=1">DE</a></li>';
+                    echo '<li class="active"><a href="?lang=2">EN</a></li>';
                     
                 } else {
                     
-                    echo '<li class="active"><a href="./?lang=1">DE</a></li>';
-                    echo '<li class=""><a href="./?lang=2">EN</a></li>';
+                    echo '<li class="active"><a href="?lang=1">DE</a></li>';
+                    echo '<li class=""><a href="?lang=2">EN</a></li>';
                 }
               
               ?>

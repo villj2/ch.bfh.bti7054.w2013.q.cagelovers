@@ -55,6 +55,10 @@ body {
     text-decoration: none;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 /* NAVIGATION
 /************************/
 
@@ -173,9 +177,38 @@ body {
     float: right;
 }
 
+.additional-info a.back {
+    float: left;
+}
+
 .products-container .last {
     text-align: right;
 }
 .prize-total {
     float: right;
+}
+
+.payment ul {
+    list-style: none;
+}
+
+.payment label {
+    margin: 20px 0 0 -17px;
+}
+
+.payment .infos ul {
+    padding: 0;
+}
+
+.payment .infos input {
+    max-width: 300px;
+}
+
+.payment .infos label {
+    margin-left: 0;
+    font-weight: normal;
+}
+
+.checkout td {
+    padding-right: 20px;
 }

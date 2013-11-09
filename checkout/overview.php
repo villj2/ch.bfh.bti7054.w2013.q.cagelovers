@@ -24,6 +24,8 @@
     
     $basket->addItem($item);
     
+    $_SESSION['basket'] = serialize($basket);
+    
 ?>
 
 <div class="container">
@@ -36,6 +38,15 @@
             <hr />
 
             <div class="products-container">
+                
+                <?php
+                if(!isset($basket)) {
+                    
+                    echo 'Keine Artikel im Warenkorb.';
+                    exit;
+                }
+                ?>
+                    
                 <table width="100%" border="0">
                     <tr>
                       <th>Artikel</th>
@@ -68,7 +79,7 @@
                 </div>
                 
                 <div class="additional-info clearfix">
-                    <a href="#" class="btn btn-success">Weiter</a>
+                    <a href="/cagelovers/checkout/payment.php" class="btn btn-success">Weiter</a>
                 </div>
                 
             </div>
