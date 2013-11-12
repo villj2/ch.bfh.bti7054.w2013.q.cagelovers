@@ -7,6 +7,7 @@
  */
 class Item {
     
+    public $id;
     public $prize;
     public $name;
     public $category;

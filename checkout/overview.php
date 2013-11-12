@@ -9,6 +9,7 @@
     $basket = new Basket();
     
     $item = new Item();
+    $item->id = 1111;
     $item->category = "eat";
     $item->name = "Cage Lolipop";
     $item->prize = 33;
@@ -17,6 +18,7 @@
     $basket->addItem($item);
     
     $item = new Item();
+    $item->id = 1112;
     $item->category = "sex";
     $item->name = "Dildo";
     $item->prize = 19;

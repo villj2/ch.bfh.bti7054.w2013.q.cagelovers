@@ -38,6 +38,51 @@ class Basket {
         
         return $prizeTotal;
     }
+    
+    public function hasItem($id) {
+        
+        $retval = false;
+        
+        foreach ($this->items as &$value) {
+            
+            if($value->id == $id) {
+                
+                $retval = true;
+                break;
+            }
+        }
+        
+        return $retval;
+    }
+    
+    public function getItemById($id) {
+        
+        $retval;
+        
+        foreach ($this->items as &$value) {
+            
+            if($value->id == $id) {
+                
+                $retval = $value;
+                break;
+            }
+        }
+        
+        return $value;
+    }
+    
+    public function updateItem($item) {
+        
+        // TODO update item
+        foreach ($this->items as &$value) {
+            
+            if($value->id == $item->id) {
+                
+                $value = $item;
+                break;
+            }
+        }
+    }
 }
 
 ?>

@@ -5,6 +5,39 @@
     include("$root/cagelovers/src/Initializer.php") ;
     include ("$root/cagelovers/templates/header.php");
     
+    if(isset($_GET['id'])) {
+        
+        $basket = unserialize($_SESSION['basket']);
+        
+        // if item is already in basket edit amount
+        // else add new item to basket with amount 1
+        if($basket->hasItem($_GET['id'])) {
+            
+            echo "item existing<br />";
+            
+            $item = $basket->getItemById($_GET['id']);
+            
+            echo "item name: $item->name <br />";
+            echo "item amount: $item->amount <br />";
+            
+            $item->amount++;
+            
+            $basket->updateItem($item);
+            
+            $_SESSION['basket'] = serialize($basket);
+            
+        } else {
+            echo "item NOT inside, add it now";
+            
+            $item = new Item();
+            $item->id = 1111;
+            $item->category = "eat";
+            $item->name = "Cage Lolipop";
+            $item->prize = 33;
+            $item->amount = 1;
+            $basket->addItem($item);
+        }
+    }
 ?>
 
 <div class="container">
@@ -59,7 +92,7 @@
             
             <div class="additional-info clearfix">
                 <a href="/cagelovers/" class="back btn btn-success">zur Übersicht</a>
-                <a href="#" class="btn btn-success">In den Warenkorb</a>
+                <a href="?id=1111" class="btn btn-success">In den Warenkorb</a>
             </div>
             
             </div>
