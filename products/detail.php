@@ -5,7 +5,7 @@
     include("$root/cagelovers/src/Initializer.php") ;
     include ("$root/cagelovers/templates/header.php");
     
-    if(isset($_GET['id'])) {
+    if(isset($_GET['id']) && isset($_GET['add'])) {
         
         $basket = unserialize($_SESSION['basket']);
         
@@ -92,7 +92,7 @@
             
             <div class="additional-info clearfix">
                 <a href="/cagelovers/" class="back btn btn-success">zur Übersicht</a>
-                <a href="?id=1111" class="btn btn-success">In den Warenkorb</a>
+                <a href="?add=true&id=1111" class="btn btn-success">In den Warenkorb</a>
             </div>
             
             </div>

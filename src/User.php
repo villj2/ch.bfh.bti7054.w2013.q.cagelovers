@@ -2,6 +2,7 @@
 
 class User
 {
+    public $id;
     public $sex;
     public $forename;
     public $name;
