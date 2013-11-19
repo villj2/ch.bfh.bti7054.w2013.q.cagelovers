@@ -67,6 +67,7 @@
                 <li><a href="/cagelovers/contact/"><?php echo $langDict->getKey("NAVI_CONTACT") ?></a></li>
                 <li><a href="/cagelovers/agb/"><?php echo $langDict->getKey("NAVI_AGB") ?></a></li>
                 <li><a href="/cagelovers/faq/"><?php echo $langDict->getKey("NAVI_FAQ") ?></a></li>
+                <li><a href="/cagelovers/test/"><?php echo $langDict->getKey("MYSQL_TEST") ?></a></li>
               </ul>
             </li>
           </ul>

@@ -20,6 +20,9 @@ class LangDict {
             $dict['NAVI_AGB'] = array(1 => "AGB", 2 => "AGB");
             $dict['NAVI_FAQ'] = array(1 => "FAQ", 2 => "FAQ");
             
+            //test INV
+            $dict['MYSQL_TEST'] = array(1 => "Test mysql", 2 => "test mysql");
+            
             $dict['NAVI_SIGN_IN'] = array(1 => "Einloggen", 2 => "Sign In");
             $dict['NAVI_REGISTER'] = array(1 => "Registrieren", 2 => "Register");
             $dict['NAVI_EMAIL'] = array(1 => "E-Mail-Adresse", 2 => "E-Mail-Address");
