@@ -16,6 +16,19 @@ class PaymentDB extends mysqli{
     public function getAllPayments(){
         return $this->query("SELECT * FROM tb_payment");
     }
+    
+    public function getSpecificPayment($id){
+        return $this->query("SELECT * FROM tb_payment WHERE ID = $id");
+    }
+    
+    public function deletePayment($id){
+        return $this->query("DELETE FROM tb_payment WHERE ID = $id");
+    }
+    
+    public function insertPayment($orderID,$amount,$dateIssed,$method){
+        return $this->query("INSERT INTO tb_payment(OrderID,Amount,DateIssed,method)
+                                VALUES ('$orderID','$amount','$dateIssed','$method')");
+    }
 }
 
 ?>

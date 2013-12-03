@@ -16,8 +16,22 @@ class OrderDB extends mysqli{
    public function getAllOrders()
    {
        return $this->query("SELECT * FROM tb_order");
-   
    }
+   public function getSpecificOrder($id){
+       return $this->query("SELECT * FROM tb_order WHERE ID = $id");
+   }
+
+   public function deleteOrder($id){
+       return $this->query("DELETE FROM tb_order WHERE ID = $id");
+   }
+   
+   public function insertOrder($userID,$status,$orderDate,$shippingDate,$shippingMethod,$shippingName1,$shippingName2,$shippingStreet,$shippingZIP,$shippingCountry)
+   {
+       return $this->query("INSERT INTO tb_order(UserID,Status,OrderDate,ShippingDate,ShippingMethod,ShippingName1,ShippingName2,ShippingStreet,ShippingZIP,ShippingCountry)
+                                VALUES ('$userID','$status','$orderDate','$shippingDate','$shippingMethod','$shippingName1','$shippingName','$shippingStreet','$shippingZIP','$shippingCountry')");
+     
+   }
+   
 }
 
 ?>
