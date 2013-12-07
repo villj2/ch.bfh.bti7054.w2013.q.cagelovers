@@ -22,11 +22,11 @@ class ArticleDB extends mysqli  {
     
     
     public function getAllArticles(){
-         $this->query("SELECT * FROM tb_article");
+         return $this->query("SELECT * FROM tb_article");
     }
     
     public function getSpecificArticle($id){
-          $this->query("SELECT * FROM tb_article WHERE ID = $id");
+          return $this->query("SELECT * FROM tb_article WHERE ID = $id");
     }
     
     public function deleteArticle($id){

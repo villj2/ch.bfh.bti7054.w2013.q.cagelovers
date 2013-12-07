@@ -24,11 +24,14 @@ class UserDB extends mysqli{
     //put your code here
     public function getAllUsers(){
         
-          $this->query("SELECT * FROM tb_user");
+          return $this->query("SELECT * FROM tb_user");
     }
     public function getSpecificUser($id){
-          $this->query("SELECT * FROM tb_user WHERE ID = $id");
+          return $this->query("SELECT * FROM tb_user WHERE ID = $id");
     }
+    public function getSpecificUserByMail($mail){
+          return $this->query("SELECT * FROM tb_user WHERE mail = '$mail'");
+    }    
     
     public function deleteUser($id){
           $this->query("DELETE FROM tb_user WHERE ID = $id");
@@ -36,8 +39,8 @@ class UserDB extends mysqli{
     }
     
     public function insertUser($mail,$password,$name1,$name2,$street,$city,$zip,$country){
-          $this->query("INSERT INTO tb_user(mail,password,name1,name2,street,city,zip,country)
-                                VALUES ('$mail','$password','$name1','$name2','$street','$city','$zip','$country'");
+          $this->query("INSERT tb_user(mail,password,name1,name2,street,city,zip,country)
+                                VALUES ('$mail','$password','$name1','$name2','$street','$city','$zip','$country')");
 
     }    
 }

@@ -21,11 +21,11 @@ class ShoppingCartDB extends mysqli{
 
     public function getAllShoppingCarts(){
         
-          $this->query("SELECT * FROM tb_shoppingcart");
+        return  $this->query("SELECT * FROM tb_shoppingcart");
     }
     
     public function getSpecificShoppingCart($id){
-          $this->query("SELECT * FROM tb_shoppingcart WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_shoppingcart WHERE ID = $id");
     }
     
     public function deleteShoppingCart($id){

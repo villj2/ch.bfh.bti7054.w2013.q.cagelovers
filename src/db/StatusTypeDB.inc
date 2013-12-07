@@ -23,7 +23,7 @@ class StatusTypeDB extends mysqli {
     
     
     public function getAllStatusTypes(){
-          $this->query("SELECT * FROM tb_stautstype");
+        return  $this->query("SELECT * FROM tb_stautstype");
     }
     public function insertStatusType($id,$description,$descriptionDE,$descriptionFR,$descriptionEN,$descriptionIT,$active){
         

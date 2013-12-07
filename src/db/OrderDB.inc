@@ -23,10 +23,10 @@ class OrderDB extends mysqli{
     
    public function getAllOrders()
    {
-         $this->query("SELECT * FROM tb_order");
+        return $this->query("SELECT * FROM tb_order");
    }
    public function getSpecificOrder($id){
-         $this->query("SELECT * FROM tb_order WHERE ID = $id");
+        return $this->query("SELECT * FROM tb_order WHERE ID = $id");
    }
 
    public function deleteOrder($id){

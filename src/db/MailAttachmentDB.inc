@@ -24,11 +24,11 @@ class MailAttachmentDB extends mysqli{
     
     public function getAllMailAttachments(){
         
-          $this->query("SELECT * FROM tb_mail_attachment");
+         return $this->query("SELECT * FROM tb_mail_attachment");
     }
     
     public function getSpecificMailAttachment($id){
-          $this->query("SELECT * FROM tb_mail_attachment WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_mail_attachment WHERE ID = $id");
     }
     
     public function deleteMailAttachment($id){

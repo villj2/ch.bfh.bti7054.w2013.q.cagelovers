@@ -20,16 +20,16 @@ class ArticleSubDB extends mysqli{
     }
     
     public function getAllArticleSub(){
-          $this->query("SELECT * FROM tb_article_sub");
+         return $this->query("SELECT * FROM tb_article_sub");
         
     }
     
     public function getSpecificArticleSub($id){
-          $this->query("SELECT * FROM tb_article_sub WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_article_sub WHERE ID = $id");
     }
     
     public function getArticleSubByArticleID($articleID){
-          $this->query("SELECT * FROM tb_article_sub WHERE ArticleID = $articleID ORDER BY SortID ASC" );
+         return $this->query("SELECT * FROM tb_article_sub WHERE ArticleID = $articleID ORDER BY SortID ASC" );
     }
     
     public function insertArticleSub($articleID,$type,$value,$sortID){

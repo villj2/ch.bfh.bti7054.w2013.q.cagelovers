@@ -9,16 +9,53 @@ if(isset($_POST['login'])) {
     
     if(count($formErrors) == 0) {
         
-        // TODO get user
+        include("$root/cagelovers/src/LoginHelper.php");
+        $loginHelper = new LoginHelper($_POST['email'],$_POST['password']);
         
-        $user = new User();
-        $user->forename = "Julien";
-        $user->name = "Villiger";
-        $_SESSION['user'] = serialize($user);
         
-        // redirect
-        header("Location: .");
-        exit;
+        
+        if($loginHelper->isAuth() == true){
+                
+            include("$root/cagelovers/src/cfg/dbconfig.php");
+            include("$root/cagelovers/src/cfg/dbopen.php");
+            
+            //include for class
+            include("$root/cagelovers/src/db/UserDB.inc");
+               
+            // TODO get user
+            $userDB = new UserDB();
+            $user = new User();
+           
+             
+            $currentDBUser = $userDB->getSpecificUserByMail($_POST['email']);
+            
+            $row = $currentDBUser->fetch_array(MYSQLI_ASSOC);
+                
+            $user->forename = $row['name1'];
+            $user->name = $row['name2'];
+            $user->city = $row['city'];
+            $user->email = $_POST['email'];
+            $user->id = $row['ID'];
+            $user->street = $row['street'];         
+            $user->country = $row['country'];
+            $user->zip = $row['zip'];
+
+            
+            include("$root/cagelovers/src/cfg/dbclose.php");
+            
+            $_SESSION['user'] = serialize($user);
+        
+            // redirect
+            //header("Location: .");
+            //exit;
+        }
+        else {
+             echo "login FAIL DB";
+        }
+        
+                
+        
+    
         
     } else {
         

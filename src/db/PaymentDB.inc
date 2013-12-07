@@ -22,11 +22,11 @@ class PaymentDB extends mysqli{
     
     
     public function getAllPayments(){
-          $this->query("SELECT * FROM tb_payment");
+         return $this->query("SELECT * FROM tb_payment");
     }
     
     public function getSpecificPayment($id){
-          $this->query("SELECT * FROM tb_payment WHERE ID = $id");
+        return  $this->query("SELECT * FROM tb_payment WHERE ID = $id");
     }
     
     public function deletePayment($id){

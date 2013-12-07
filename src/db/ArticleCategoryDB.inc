@@ -21,11 +21,11 @@ class ArticleCategoryDB  extends mysqli{
         parent::select_db($dbname);
     }
     public function getAllArticleCategories(){
-          $this->query("SELECT * FROM tb_article_category");
+         return $this->query("SELECT * FROM tb_article_category");
     }
     
     public function getSpecificArticleCategory($id){
-          $this->query("SELECT * FROM tb_article_category WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_article_category WHERE ID = $id");
     }
     
     public function deleteArticleCategory($id){

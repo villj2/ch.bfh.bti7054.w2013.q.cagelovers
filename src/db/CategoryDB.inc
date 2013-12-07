@@ -22,11 +22,11 @@ class CategoryDB extends mysqli{
     
 
     public function getAllCategories(){
-         $this->query("SELECT * FROM tb_category");
+         return $this->query("SELECT * FROM tb_category");
     }
     
     public function getSpecificCategory($id){
-         $this->query("SELECT * FROM tb_category WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_category WHERE ID = $id");
     }
     
     public function deleteCategory($id){

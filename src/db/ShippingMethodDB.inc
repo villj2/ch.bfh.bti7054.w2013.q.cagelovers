@@ -22,7 +22,7 @@ class ShippingMethodDB extends mysqli{
 
     
     public function getAllShippingMethods(){
-          $this->query("SELECT * FROM tb_shippingmethod");
+         return $this->query("SELECT * FROM tb_shippingmethod");
     }
 
 

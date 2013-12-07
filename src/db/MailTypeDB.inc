@@ -23,10 +23,10 @@ class MailTypeDB extends mysqli{
     
     
     public function getAllMailTypes(){
-          $this->query("SELECT * FROM tb_mailtype");
+         return $this->query("SELECT * FROM tb_mailtype");
     }
     public function insertMailType($id,$description){
-          $this->query("INSERT INTO tb_mailtype(ID,Description)
+         return $this->query("INSERT INTO tb_mailtype(ID,Description)
                                 VALUES( '$id','$description')");
     }
 }

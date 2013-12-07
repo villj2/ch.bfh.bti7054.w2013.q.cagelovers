@@ -23,11 +23,11 @@ class MailDB extends mysqli {
     
     public function getAllMails(){
         
-          $this->query("SELECT * FROM tb_mail");
+         return $this->query("SELECT * FROM tb_mail");
     }
     
     public function getSpecificMail($id){
-          $this->query("SELECT * FROM tb_mail WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_mail WHERE ID = $id");
     }
     
     public function deleteMail($id){

@@ -23,11 +23,11 @@ class ParcelDB extends mysqli {
     
     public function getAllParcels(){
         
-          $this->query("SELECT * FROM tb_parcel");
+         return $this->query("SELECT * FROM tb_parcel");
     }
     
     public function getSpecificParcel($id){
-          $this->query("SELECT * FROM tb_parcel WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_parcel WHERE ID = $id");
     }
     
     public function deleteParcel($id){

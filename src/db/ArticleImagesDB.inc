@@ -23,12 +23,12 @@ class ArticleImagesDB extends mysqli{
     
     public function getAllArticleImages(){
         
-          $this->query("SELECT * FROM tb_article_images ORDER BY ID ASC");
+          return $this->query("SELECT * FROM tb_article_images ORDER BY ID ASC");
         
     }
     
     public function getArticleImagesByArticleID($articleID){
-          $this->query("SELECT * FROM tb_article_images WHERE ArticleID = $articleID");
+          return $this->query("SELECT * FROM tb_article_images WHERE ArticleID = $articleID");
     }
     
     public function insertArticleImage($articleID,$imagePath){

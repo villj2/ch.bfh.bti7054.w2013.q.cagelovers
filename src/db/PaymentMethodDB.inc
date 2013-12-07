@@ -21,7 +21,7 @@ class PaymentMethodDB extends mysqli{
     }
     
     public function getAllPaymentMethods(){
-          $this->query("SELECT * FROM tb_paymentmethod");
+         return $this->query("SELECT * FROM tb_paymentmethod");
     }
     public function insertPaymentMethod($id,$description){
           $this->query("INSERT  tb_paymentmethod(ID,Description)

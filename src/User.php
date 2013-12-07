@@ -7,9 +7,11 @@ class User
     public $forename;
     public $name;
     public $street;
-    public $plz;
     public $city;
+    public $country;
     public $email;
+    public $password;
+    public $zip;
     
     public function User()
     {
