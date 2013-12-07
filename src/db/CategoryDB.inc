@@ -11,23 +11,35 @@
  * @author Daniel Inversini
  */
 class CategoryDB extends mysqli{
-    //put your code here
+    //put your code here    
     
+    function __construct() {
+        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        include("$root/cagelovers/src/cfg/dbconfig.php");
+        parent::__construct($dbhost, $dbuser, $dbpass, $dbname);
+        parent::select_db($dbname);
+    }
+    
+
     public function getAllCategories(){
-        return $this->query("SELECT * FROM tb_category");
+         $this->query("SELECT * FROM tb_category");
     }
     
     public function getSpecificCategory($id){
-        return $this->query("SELECT * FROM tb_category WHERE ID = $id");
+         $this->query("SELECT * FROM tb_category WHERE ID = $id");
     }
     
     public function deleteCategory($id){
-        return $this->query("DELETE FROM tb_category WHERE ID = $id");        
+         $this->query("DELETE FROM tb_category WHERE ID = $id");        
     }
+      
+    
     
     public function insertCategory($descriptionDE,$descriptionFR,$descriptionIT,$descriptionEN,$parentID,$orderID){
-        return $this->query("INSERT INTO tb_category(DescriptionDE,DescriptionFR,DescriptionIT,DescriptionEN,ParentID,OrderID)
-                                VALUES('$descriptionDE','$descriptionFR','$descriptionIT','$descriptionEN','$parentID','$orderID')");
+        $this->query("INSERT tb_category (DescriptionDE,DescriptionFR,DescriptionIT,DescriptionEN,ParentID,OrderID)
+                                VALUES ('$descriptionDE','$descriptionFR','$descriptionIT','$descriptionEN','$parentID','$orderID')");
+        
+       
                                
     }
 }

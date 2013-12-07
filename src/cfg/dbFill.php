@@ -16,9 +16,12 @@
     include("$root/cagelovers/src/db/CategoryDB.inc");
     $category = new CategoryDB();
     
+    //$category->connect($dbhost, $dbuser, $dbpass, $dbname);
+    
     // parentID, SortID am ende
     //Gruppe Kleider
     $category->insertCategory('Kleider', 'Kleider', 'Kleider', 'Kleider', 0, 1); //1
+     printf("inserted id %d .\n", $category->insert_id);
         $category->insertCategory('T-Shirts', 'T-Shirts', 'T-Shirts', 'T-Shirts', 1, 1); //2
         $category->insertCategory('Hosen', 'Hosen', 'Hosen', 'Hosen', 1, 2); //3
         $category->insertCategory('Mützen', 'Mützen', 'Mützen', 'Mützen', 1, 3); //4
@@ -52,7 +55,10 @@
     
     //Gruppe Puppen
     $category->insertCategory('Puppen', 'Puppen', 'Puppen', 'Puppen', 0, 8); //18
+    
    
+
+    $category->close();
 
     //tb_article
     include("$root/cagelovers/src/db/ArticleDB.inc");
@@ -155,14 +161,38 @@
     include("$root/cagelovers/src/db/ArticleImagesDB.inc");
     
     $articleImages = new ArticleImagesDB();
-    
-        
-    $tmpResultInsertImages = mysql_query('SHOW TABLES [LIKE tb_article]' );
- 
-    while ($row = mysql_fetch_array($tmpResultInsertImages, MYSQL_NUM))
-    {   
-        $res2 = mysql_query("INSERT INTO tb_article_images(ArticleID,ImagePath) VALUES (`$row[0]`,'/img/products/`$row[0]/1.jpg')");
-    }
+    $articleImages->insertArticleImage(1, '/img/products/1/1.jpg');
+    $articleImages->insertArticleImage(2, '/img/products/2/1.jpg');
+    $articleImages->insertArticleImage(3, '/img/products/3/1.jpg');
+    $articleImages->insertArticleImage(4, '/img/products/4/1.jpg');
+    $articleImages->insertArticleImage(5, '/img/products/5/1.jpg');
+    $articleImages->insertArticleImage(6, '/img/products/6/1.jpg');
+    $articleImages->insertArticleImage(7, '/img/products/7/1.jpg');
+    $articleImages->insertArticleImage(8, '/img/products/8/1.jpg');
+    $articleImages->insertArticleImage(9, '/img/products/9/1.jpg');
+    $articleImages->insertArticleImage(10, '/img/products/10/1.jpg');
+    $articleImages->insertArticleImage(11, '/img/products/11/1.jpg');
+    $articleImages->insertArticleImage(12, '/img/products/12/1.jpg');
+    $articleImages->insertArticleImage(13, '/img/products/13/1.jpg');
+    $articleImages->insertArticleImage(14, '/img/products/14/1.jpg');
+    $articleImages->insertArticleImage(15, '/img/products/15/1.jpg');
+    $articleImages->insertArticleImage(16, '/img/products/16/1.jpg');
+    $articleImages->insertArticleImage(17, '/img/products/17/1.jpg');
+    $articleImages->insertArticleImage(18, '/img/products/18/1.jpg');
+    $articleImages->insertArticleImage(19, '/img/products/19/1.jpg');
+    $articleImages->insertArticleImage(20, '/img/products/20/1.jpg');
+    $articleImages->insertArticleImage(21, '/img/products/21/1.jpg');
+    $articleImages->insertArticleImage(22, '/img/products/22/1.jpg');
+    $articleImages->insertArticleImage(23, '/img/products/23/1.jpg');
+    $articleImages->insertArticleImage(24, '/img/products/24/1.jpg');
+    $articleImages->insertArticleImage(25, '/img/products/25/1.jpg');
+    $articleImages->insertArticleImage(26, '/img/products/26/1.jpg');
+    $articleImages->insertArticleImage(27, '/img/products/27/1.jpg');
+    $articleImages->insertArticleImage(28, '/img/products/28/1.jpg');
+    $articleImages->insertArticleImage(29, '/img/products/29/1.jpg');
+    $articleImages->insertArticleImage(30, '/img/products/20/1.jpg');
+    $articleImages->insertArticleImage(31, '/img/products/31/1.jpg');    
+        //$res2 = $conn->query("INSERT INTO tb_article_images(ArticleID,ImagePath) VALUES (`$row[0]`,'/img/products/`$row[0]/1.jpg')");
 
     //tb_article_sub
     include("$root/cagelovers/src/db/ArticleSubDB.inc");
@@ -237,7 +267,7 @@
     
     //tb_paymentmethod
      
-    include("$root/cagelovers/src/db/PaymentMethod.inc");
+    include("$root/cagelovers/src/db/PaymentMethodDB.inc");
     $paymentMethod = new PaymentMethodDB();
     
     $paymentMethod->insertPaymentMethod('KRE', 'Kreditkarte');
@@ -271,7 +301,10 @@
     
     include("$root/cagelovers/src/cfg/dbclose.php");
 
-    
+    include("$root/cagelovers/src/cfg/dbShowAll.php");
+
+
+    echo "alles gut!"
     
 
 ?>

@@ -12,22 +12,30 @@
  */
 class MailDB extends mysqli {
     //put your code here
+
+    function __construct() {
+        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        include("$root/cagelovers/src/cfg/dbconfig.php");
+        parent::__construct($dbhost, $dbuser, $dbpass, $dbname);
+        parent::select_db($dbname);
+    }
+    
     
     public function getAllMails(){
         
-        return $this->query("SELECT * FROM tb_mail");
+          $this->query("SELECT * FROM tb_mail");
     }
     
     public function getSpecificMail($id){
-        return $this->query("SELECT * FROM tb_mail WHERE ID = $id");
+          $this->query("SELECT * FROM tb_mail WHERE ID = $id");
     }
     
     public function deleteMail($id){
-        return $this->query("DELETE FROM tb_mail WHERE ID = $id");
+          $this->query("DELETE FROM tb_mail WHERE ID = $id");
     }
     
     public function insertMail($mailType,$mailTo,$mailCC,$mailBCC,$mailSubject,$mailBody,$mailSent,$mailSentTM){
-        return $this->query("INSERT INTO tb_mail(mailType,mailTo,mailCC,mailBCC,mailSubject,mailBody,mailSent,mailSentTM)
+          $this->query("INSERT INTO tb_mail(mailType,mailTo,mailCC,mailBCC,mailSubject,mailBody,mailSent,mailSentTM)
                                 VALUES ('$mailType','$mailTo','$mailCC','$mailBCC','$mailSubject','$mailBody','$mailSent','$mailSentTM')");
     }
 }

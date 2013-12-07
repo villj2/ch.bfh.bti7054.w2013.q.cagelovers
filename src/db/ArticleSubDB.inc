@@ -12,22 +12,28 @@
  */
 class ArticleSubDB extends mysqli{
     //put your code here
+    function __construct() {
+        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        include("$root/cagelovers/src/cfg/dbconfig.php");
+        parent::__construct($dbhost, $dbuser, $dbpass, $dbname);
+        parent::select_db($dbname);
+    }
     
     public function getAllArticleSub(){
-        return $this->query("SELECT * FROM tb_article_sub");
+          $this->query("SELECT * FROM tb_article_sub");
         
     }
     
     public function getSpecificArticleSub($id){
-        return $this->query("SELECT * FROM tb_article_sub WHERE ID = $id");
+          $this->query("SELECT * FROM tb_article_sub WHERE ID = $id");
     }
     
     public function getArticleSubByArticleID($articleID){
-        return $this->query("SELECT * FROM tb_article_sub WHERE ArticleID = $articleID ORDER BY SortID ASC" );
+          $this->query("SELECT * FROM tb_article_sub WHERE ArticleID = $articleID ORDER BY SortID ASC" );
     }
     
     public function insertArticleSub($articleID,$type,$value,$sortID){
-        return $this->query("INSERT INTO tb_article_sub(ArticleID,Type,Value,SortID)
+          $this->query("INSERT INTO tb_article_sub(ArticleID,Type,Value,SortID)
                                 VALUES ($articleID,'$type','$value',$sortID)");
        
     }
