@@ -32,9 +32,10 @@
     
     <br>
     <h2> <?php  echo '<a href=/cagelovers/src/cfg/dbflush.php>flush DB</a>.'; ?>
-        
-        
     
+        <br>
+        <br>
+        
     
 </div>
 

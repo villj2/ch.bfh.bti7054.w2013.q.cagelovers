@@ -23,7 +23,7 @@
     
     include("$root/cagelovers/src/cfg/dbclose.php");
 
-    
+    echo("$root/cagelovers")
     //redirect
 
 ?>
