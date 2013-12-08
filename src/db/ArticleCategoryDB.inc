@@ -38,11 +38,11 @@ class ArticleCategoryDB  extends mysqli{
     }
     
     public function getAllArticlesByCategory($categoryID){
-          $this->query("SELECT * FROM tb_article_category WHERE CategoryID = $categoryID");
+          return $this->query("SELECT * FROM tb_article_category WHERE CategoryID = $categoryID");
     }
     
     public function getAllCategoriesByArticle($articleID){
-          $this->query("SELECT * FROM tb_article_category WHERE ArticleID = $articleID");
+          return $this->query("SELECT * FROM tb_article_category WHERE ArticleID = $articleID");
     }
     
 }

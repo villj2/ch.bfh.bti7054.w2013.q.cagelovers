@@ -46,8 +46,8 @@ if(isset($_POST['login'])) {
             $_SESSION['user'] = serialize($user);
         
             // redirect
-            //header("Location: .");
-            //exit;
+            header("Location: .");
+            exit;
         }
         else {
              echo "login FAIL DB";

@@ -25,6 +25,14 @@ class CategoryDB extends mysqli{
          return $this->query("SELECT * FROM tb_category");
     }
     
+    public function getAllRootCategories(){
+        return $this->query("SELECT * FROM tb_category WHERE ParentID = 0");
+    }
+    
+    public function getChildCategory($id){
+        return $this->query("SELECT * FROM tb_category WHERE ParentID = $id");
+    }
+    
     public function getSpecificCategory($id){
          return $this->query("SELECT * FROM tb_category WHERE ID = $id");
     }

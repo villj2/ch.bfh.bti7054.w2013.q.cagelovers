@@ -120,7 +120,7 @@
                             </li>
                             <li>
                                 <label for="password">Passwort</label>
-                                <input id="email" name="password" inputtype="password" class="form-control">
+                                <input id="email" name="password" inputtype="hidden" class="form-control">
                             </li>                            
                             <li>
                                 <button type="submit" class="btn btn-default">Abschicken</button>
