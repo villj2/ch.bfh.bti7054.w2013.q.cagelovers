@@ -1,5 +1,9 @@
 <?php
 
+include("$root/cagelovers/src/cfg/dbconfig.php");
+include("$root/cagelovers/src/db/OrderDB.inc");
+include("$root/cagelovers/src/cfg/dbopen.php");
+
 /**
  * Description of Basket
  *
@@ -22,7 +26,19 @@ class Basket {
         array_push($this->items, $item);
     }
     
-    public function removeItem($item) {
+    public function removeItem($itemId) {
+        
+        $i = 0;
+        foreach ($this->items as &$value) {
+            
+            if($value->id == $itemId) {
+                
+                unset($this->items[$i]);
+                $this->items = array_values($this->items);
+            }
+            
+            $i++;
+        }
     }
     
     public function getPrizeTotal() {
@@ -33,7 +49,7 @@ class Basket {
         
         foreach ($this->items as &$value) {
             
-            $prizeTotal += $value->prize;
+            $prizeTotal += $value->prize * $value->amount;
         }
         
         return $prizeTotal;
@@ -43,12 +59,15 @@ class Basket {
         
         $retval = false;
         
-        foreach ($this->items as &$value) {
-            
-            if($value->id == $id) {
-                
-                $retval = true;
-                break;
+        if(count($this->items) > 0) {
+        
+            foreach ($this->items as &$value) {
+
+                if($value->id == $id) {
+
+                    $retval = true;
+                    break;
+                }
             }
         }
         
@@ -73,7 +92,6 @@ class Basket {
     
     public function updateItem($item) {
         
-        // TODO update item
         foreach ($this->items as &$value) {
             
             if($value->id == $item->id) {
@@ -82,6 +100,20 @@ class Basket {
                 break;
             }
         }
+    }
+    
+    public function makeOrder($paymethod) {
+        
+        $user = unserialize($_SESSION['user']);
+        
+        $order = new OrderDB();
+        
+        foreach ($this->items as &$value) {
+            $order = $order->insertOrder($user->id,getdate(),$user->street,$user->zip,$user->country,$value->id,$value->amount,$paymethod);
+        }
+        
+        // FIXME fetch? insert?
+        $order = $order->fetch_object();
     }
 }
 

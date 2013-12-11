@@ -10,6 +10,7 @@
     if(isset($_GET['logout']) && $_GET['logout'] == "true") {
         
         $_SESSION['user'] = null;
+        $_SESSION['basket'] = null;
         
         header("Location: /cagelovers/");
         exit;

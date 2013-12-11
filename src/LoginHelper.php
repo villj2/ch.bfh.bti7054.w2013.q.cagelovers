@@ -32,6 +32,7 @@ class LoginHelper {
     }
     
     public function isAuth(){
+        
         $root = realpath($_SERVER["DOCUMENT_ROOT"]);
         include("$root/cagelovers/src/cfg/dbconfig.php");
         include("$root/cagelovers/src/cfg/dbopen.php"); 
@@ -53,9 +54,7 @@ class LoginHelper {
         else 
         {
             return false;
-        }
-        
-                
+        }   
     }
 }
 

@@ -39,10 +39,12 @@
             $currentArticle = new ArticleDB();
             $currentArticle = $currentArticle->getSpecificArticle($row['ID']);
             $currentArticle = $currentArticle->fetch_object();
-            echo $currentArticle->ID;
-            echo $currentArticle->Title;
-            echo $currentArticle->Description;
-            echo "<br>";
+            
+            echo '<div class="col-lg-4">';
+            echo "<h2>$currentArticle->Title</h2>";
+            echo "<p>$currentArticle->Description</p>";
+            echo '<p><a class="btn btn-default" href="/cagelovers/products/detail.php?id='.$currentArticle->ID.'">View details</a></p>';
+            echo '</div>';
             
         }
         echo "</div>";
@@ -57,7 +59,7 @@
 
         $dbCat = new CategoryDB();
         $allCats = $dbCat->getAllRootCategories();
-
+        
         echo "<div class='container'>";
         echo "<div class='row'>";
 

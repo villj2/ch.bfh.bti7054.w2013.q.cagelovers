@@ -33,13 +33,20 @@ class OrderDB extends mysqli{
          $this->query("DELETE FROM tb_order WHERE ID = $id");
    }
    
+   /*
    public function insertOrder($userID,$status,$orderDate,$shippingDate,$shippingMethod,$shippingName1,$shippingName2,$shippingStreet,$shippingZIP,$shippingCountry)
    {
          $this->query("INSERT INTO tb_order(UserID,Status,OrderDate,ShippingDate,ShippingMethod,ShippingName1,ShippingName2,ShippingStreet,ShippingZIP,ShippingCountry)
                                 VALUES ('$userID','$status','$orderDate','$shippingDate','$shippingMethod','$shippingName1','$shippingName','$shippingStreet','$shippingZIP','$shippingCountry')");
      
    }
-   
+    */
+   public function insertOrder($userID,$orderDate,$shippingStreet,$shippingZIP,$shippingCountry,$articleId,$amount,$paymethod)
+   {
+         $this->query("INSERT INTO tb_order(UserID,OrderDate,ShippingStreet,ShippingZIP,ShippingCountry,ArticleId,Amount,Paymethod)
+                        VALUES ('$userID','$orderDate','$shippingStreet','$shippingZIP','$shippingCountry','$articleId','$amount','$paymethod')");
+     
+   }
 }
 
 ?>

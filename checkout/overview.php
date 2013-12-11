@@ -5,28 +5,7 @@
     include("$root/cagelovers/src/Initializer.php") ;
     include ("$root/cagelovers/templates/header.php");
     
-    // FIXME just4testing - create item and put them in basket
-    $basket = new Basket();
-    
-    $item = new Item();
-    $item->id = 1111;
-    $item->category = "eat";
-    $item->name = "Cage Lolipop";
-    $item->prize = 33;
-    $item->amount = 2;
-    
-    $basket->addItem($item);
-    
-    $item = new Item();
-    $item->id = 1112;
-    $item->category = "sex";
-    $item->name = "Dildo";
-    $item->prize = 19;
-    $item->amount = 1;
-    
-    $basket->addItem($item);
-    
-    $_SESSION['basket'] = serialize($basket);
+    $basket = unserialize($_SESSION['basket']);
     
 ?>
 
@@ -46,6 +25,12 @@
                     
                     echo 'Keine Artikel im Warenkorb.';
                     exit;
+                }
+                
+                if(isset($_GET["delete"])) {
+                    
+                    $basket->removeItem($_GET["delete"]);
+                    $_SESSION['basket'] = serialize($basket);
                 }
                 ?>
                     
@@ -68,7 +53,7 @@
                             echo '<td>' . $value->amount . '</td>';
                             echo '<td>' . $value->prize . '.-</td>';
                             echo '<td>' . $value->amount * $value->prize . '.-</td>';
-                            echo '<td class="last"><a href="#" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
+                            echo '<td class="last"><a href="/cagelovers/checkout/overview.php?delete='.$value->id.'" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
                             
                             echo '</tr>';
                         }
@@ -89,3 +74,5 @@
       </div>
     </div>
 </div>
+
+<?php include("$root/cagelovers/templates/footer.php") ?>

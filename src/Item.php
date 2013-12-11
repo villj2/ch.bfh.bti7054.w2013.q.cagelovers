@@ -12,11 +12,10 @@ class Item {
     public $name;
     public $category;
     public $amount;
+    public $descriptionId;
     
     public function Item()
-    {
-        
-    }
+    {}
 }
 
 ?>

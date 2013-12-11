@@ -17,6 +17,10 @@ body {
     float: left;
 }
 
+.float-right {
+    float: right;
+}
+
 .btn-success {
     color: #fcf6ea;
     background-color: #706b68;
@@ -157,6 +161,16 @@ body {
     margin-right: 5px !important;
 }
 
+/* PRODUCTS
+/************************/
+.products-add-basket{
+    text-align: right;
+}
+
+.img-container {
+    overflow:hidden;
+}
+
 /* FAQ
 /************************/
 .faq .question {
@@ -211,4 +225,9 @@ body {
 
 .checkout td {
     padding-right: 20px;
+}
+
+.checkout .errors {
+    margin: 10px 0 0;
+    color: red;
 }

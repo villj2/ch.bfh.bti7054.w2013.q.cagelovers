@@ -8,7 +8,18 @@
     include("$root/cagelovers/src/cfg/dbconfig.php");
     include("$root/cagelovers/src/db/CategoryDB.inc");
     include("$root/cagelovers/src/cfg/dbopen.php");
-    
+?>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Products</h1>
+        <hr>
+      </div>
+    </div>
+</div>
+
+<?php
     
     $dbCat = new CategoryDB();
     if(isset($_GET['rootID'])){
