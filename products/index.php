@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     
@@ -12,46 +12,71 @@
     <div class="row">
       <div class="col-lg-12">
         <h1>Products</h1>
-        <h4>Choose a category</h4>
         <hr />
       </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <h2>Bettwaesche</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="/cagelovers/products/detail.php">View details »</a></p>
-      </div>
-      <div class="col-lg-4">
-        <h2>Kleidung</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#">View details »</a></p>
-     </div>
-      <div class="col-lg-4">
-        <h2>Esswaren</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-default" href="#">View details »</a></p>
-      </div>
-        <div class="col-lg-4">
-        <h2>Stofftiere</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-default" href="#">View details »</a></p>
-      </div>
-        <div class="col-lg-4">
-        <h2>S&M Spiele</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-default" href="#">View details »</a></p>
-      </div>
-    </div>
+<?php
+    include("$root/cagelovers/src/cfg/dbconfig.php");
+    
+    
+    if(isset($_GET['CategoryID']))
+    {
+        include("$root/cagelovers/src/db/ArticleDB.inc");
+        include("$root/cagelovers/src/db/ArticleCategoryDB.inc");
+        include("$root/cagelovers/src/cfg/dbopen.php");
 
-    <hr>
+        //echo $_GET['CategoryID'];
+        $dbArt = new ArticleCategoryDB();
+        $allArticles = $dbArt->getAllArticlesByCategory($_GET['CategoryID']);
+        
+        echo "<div class='container'>";
+        echo "<div class='row'>";
+        
+        while($row = $allArticles->fetch_array(MYSQLI_BOTH))
+        {
+            $currentArticle = new ArticleDB();
+            $currentArticle = $currentArticle->getSpecificArticle($row['ID']);
+            $currentArticle = $currentArticle->fetch_object();
+            echo $currentArticle->ID;
+            echo $currentArticle->Title;
+            echo $currentArticle->Description;
+            echo "<br>";
+            
+        }
+        echo "</div>";
+                
+        include("$root/cagelovers/src/cfg/dbclose.php");
+        
+    }
+    else
+    {
+        include("$root/cagelovers/src/db/CategoryDB.inc");
+        include("$root/cagelovers/src/cfg/dbopen.php");
 
-    <footer>
-      <p>© Company 2013</p>
-    </footer>
-</div>
+        $dbCat = new CategoryDB();
+        $allCats = $dbCat->getAllRootCategories();
+
+        echo "<div class='container'>";
+        echo "<div class='row'>";
+
+
+        while($row = $allCats->fetch_array(MYSQLI_BOTH))
+        {
+            echo "<div class='col-lg-4'>";
+
+            echo "<p><a class='btn btn-default'  <a href='category.php?rootID=".$row['ID']."'>".$row['DescriptionDE']."</a>";
+
+            echo "</div>";
+            //$linkAdr = '<a href="category.php?rootID='.$row['ID'].'>'.$row['DescriptionDE'].'</a>';
+            //echo $linkAdr;
+        }
+        include("$root/cagelovers/src/cfg/dbclose.php");
+        echo "</div>";
+    }
+?>
+
+
 
 <?php include("$root/cagelovers/templates/footer.php") ?>

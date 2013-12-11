@@ -14,16 +14,16 @@
 
     
     
-    $result = mysql_query('SHOW TABLES');
+    $result = $conn->query('SHOW TABLES');
  
-    while ($row = mysql_fetch_array($result, MYSQL_NUM))
+    while ($row = mysqli_fetch_array($result, MYSQL_NUM))
     {   
-        $res2 = mysql_query("TRUNCATE TABLE `$row[0]`");
+        $res2 = $conn->query("TRUNCATE TABLE `$row[0]`");
     }
     
     include("$root/cagelovers/src/cfg/dbclose.php");
 
-    
+    echo("$root/cagelovers")
     //redirect
 
 ?>

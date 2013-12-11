@@ -12,21 +12,29 @@
  */
 class PaymentDB extends mysqli{
     //put your code here
+
+    function __construct() {
+        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        include("$root/cagelovers/src/cfg/dbconfig.php");
+        parent::__construct($dbhost, $dbuser, $dbpass, $dbname);
+        parent::select_db($dbname);
+    }
+    
     
     public function getAllPayments(){
-        return $this->query("SELECT * FROM tb_payment");
+         return $this->query("SELECT * FROM tb_payment");
     }
     
     public function getSpecificPayment($id){
-        return $this->query("SELECT * FROM tb_payment WHERE ID = $id");
+        return  $this->query("SELECT * FROM tb_payment WHERE ID = $id");
     }
     
     public function deletePayment($id){
-        return $this->query("DELETE FROM tb_payment WHERE ID = $id");
+          $this->query("DELETE FROM tb_payment WHERE ID = $id");
     }
     
     public function insertPayment($orderID,$amount,$dateIssed,$method){
-        return $this->query("INSERT INTO tb_payment(OrderID,Amount,DateIssed,method)
+          $this->query("INSERT INTO tb_payment(OrderID,Amount,DateIssed,method)
                                 VALUES ('$orderID','$amount','$dateIssed','$method')");
     }
 }

@@ -12,22 +12,28 @@
  */
 class ShoppingCartDB extends mysqli{
     //put your code here
+    function __construct() {
+        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        include("$root/cagelovers/src/cfg/dbconfig.php");
+        parent::__construct($dbhost, $dbuser, $dbpass, $dbname);
+        parent::select_db($dbname);
+    }
 
     public function getAllShoppingCarts(){
         
-        return $this->query("SELECT * FROM tb_shoppingcart");
+        return  $this->query("SELECT * FROM tb_shoppingcart");
     }
     
     public function getSpecificShoppingCart($id){
-        return $this->query("SELECT * FROM tb_shoppingcart WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_shoppingcart WHERE ID = $id");
     }
     
     public function deleteShoppingCart($id){
-        return $this->query("DELETE FROM tb_shippingcart WHERE ID = $id");
+          $this->query("DELETE FROM tb_shippingcart WHERE ID = $id");
     }
     
     public function insertShoppingCart($orderID,$articleID,$articleSubID,$count){
-        return $this->query("INSERT INTO tb_shoppingcart(OrderID,ArticleID,ArticleSubID) 
+          $this->query("INSERT INTO tb_shoppingcart(OrderID,ArticleID,ArticleSubID) 
                                 VALUES ('$orderID','$articleID','$articleSubID','$count')");
     }
     

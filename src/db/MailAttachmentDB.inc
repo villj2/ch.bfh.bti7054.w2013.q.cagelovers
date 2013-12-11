@@ -12,21 +12,31 @@
  */
 class MailAttachmentDB extends mysqli{
     //put your code here
+    
+    function __construct() {
+        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        include("$root/cagelovers/src/cfg/dbconfig.php");
+        parent::__construct($dbhost, $dbuser, $dbpass, $dbname);
+        parent::select_db($dbname);
+    }
+
+    
+    
     public function getAllMailAttachments(){
         
-        return $this->query("SELECT * FROM tb_mail_attachment");
+         return $this->query("SELECT * FROM tb_mail_attachment");
     }
     
     public function getSpecificMailAttachment($id){
-        return $this->query("SELECT * FROM tb_mail_attachment WHERE ID = $id");
+         return $this->query("SELECT * FROM tb_mail_attachment WHERE ID = $id");
     }
     
     public function deleteMailAttachment($id){
-        return $this->query("DELETE FROM tb_mail_attachment WHERE ID = $id");
+          $this->query("DELETE FROM tb_mail_attachment WHERE ID = $id");
     } 
     
     public function insertMailAttachment($mailID,$attachmentPath){
-        return $this->query("INSERT INTO tb_mail_attachment(MailID,AttachmentPath)
+          $this->query("INSERT INTO tb_mail_attachment(MailID,AttachmentPath)
                                 VALUES ('$mailID','$attachmentPath')");
     }
 }

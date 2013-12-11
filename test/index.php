@@ -19,22 +19,20 @@
     <div>
         <?php
             include("$root/cagelovers/src/cfg/dbopen.php");
-                
-            $result = mysql_query('select * from tb_article');
-            echo "----------articles---------<br>";
-            while ($row = mysql_fetch_array($result)) {
-                echo "ID:".$row{'ID'}." Title:".$row{'Title'}."description: ".$row{'Description'}."<br>";
-                }
-            echo "-----articles finished------<br>";
+             
+            //echo phpinfo();
+              
+            include("$root/cagelovers/src/cfg/dbShowAll.php");
             include("$root/cagelovers/src/cfg/dbclose.php");
         ?>
     </div>
     
     <br>
     <h2> <?php  echo '<a href=/cagelovers/src/cfg/dbflush.php>flush DB</a>.'; ?>
-        
-        
     
+        <br>
+        <br>
+     <h2> <?php  echo '<a href=/cagelovers/src/cfg/dbFill.php>Fill DB</a>.'; ?>
     
 </div>
 
