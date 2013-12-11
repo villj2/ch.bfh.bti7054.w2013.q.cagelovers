@@ -2,7 +2,7 @@
     
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     
-    include("$root/cagelovers/src/Initializer.php") ;
+    require_once("$root/cagelovers/src/Initializer.php") ;
     $_SESSION['navipoint'] = 'home';
     include ("$root/cagelovers/templates/header.php");
 ?>
