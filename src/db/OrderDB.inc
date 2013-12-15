@@ -41,7 +41,7 @@ class OrderDB extends mysqli{
      
    }
     */
-   public function insertOrder($userID,$orderDate,$shippingStreet,$shippingZIP,$shippingCountry,$articleId,$amount,$paymethod)
+   public function insertOrder($userID,$orderDate,$shippingStreet,$shippingZIP,$shippingCountry,$articleId,$modification,$amount,$paymethod)
    {
          $this->query("INSERT INTO tb_order(UserID,OrderDate,ShippingStreet,ShippingZIP,ShippingCountry,ArticleId,Amount,Paymethod)
                         VALUES ('$userID','$orderDate','$shippingStreet','$shippingZIP','$shippingCountry','$articleId','$amount','$paymethod')");

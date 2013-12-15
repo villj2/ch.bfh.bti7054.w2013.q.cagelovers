@@ -9,7 +9,9 @@
     include("$root/cagelovers/src/db/ArticleCategoryDB.inc");
     include("$root/cagelovers/src/db/ArticleImagesDB.inc");
     include("$root/cagelovers/src/db/CategoryDB.inc");
+    include("$root/cagelovers/src/db/ArticleSubDB.inc");
     include("$root/cagelovers/src/cfg/dbopen.php");
+    
     
     if($_GET['id']){
                 
@@ -31,6 +33,13 @@
         $currentArticleImage = $currentArticleImage->getArticleImagesByArticleID($_GET['id']);
         $currentArticleImage = $currentArticleImage->fetch_object();
         
+        $currentArticleSub = new ArticleSubDB();
+        $currentArticleSub = $currentArticleSub->getArticleSubByArticleID($_GET['id']);
+        //$currentArticleSub = $currentArticleSub->fetch_array();
+        
+        //$basket = new Basket();
+        //$_SESSION['basket'] = serialize($basket);
+        
     } else {
         
         header('Location: /cagelovers/products/');
@@ -50,6 +59,7 @@
             
             $item = $basket->getItemById($_GET['id']);
             $item->amount += $_GET['amount'];
+            if(isset($_GET['modification'])) $item->modification = $_GET['modification'];
             $basket->updateItem($item);
             
             $_SESSION['basket'] = serialize($basket);
@@ -63,6 +73,7 @@
             $item->name = $currentArticle->Title;
             $item->prize = $currentArticle->Price;
             $item->amount = $_GET['amount'];
+            if(isset($_GET['modification'])) $item->modification = $_GET['modification'];
             $basket->addItem($item);
             
             $_SESSION['basket'] = serialize($basket);
@@ -132,6 +143,19 @@
                                 <td class="bold">Kategorie:</td>
                                 <td><?php echo $currentCat->DescriptionDE ?></td>
                             </tr>
+                            
+                            <?php
+                            
+                            //$goat = 
+                            
+                            
+                            /*
+                            <tr>
+                                <td class="bold">&#83;&#116;&#252;&#99;&#107;&#97;&#110;&#122;&#97;&#104;&#108;:</td>
+                                <td>120</td>
+                            </tr>
+                             * */
+                            ?>
                         </table>
                     </div>
                 
@@ -159,6 +183,16 @@
                     ?>
                     
                     <form role="form" action="/cagelovers/products/detail.php" method="get">
+                        <div class="form-group">
+                            <select name="modification">
+                                <?php
+                                    while($row = $currentArticleSub->fetch_array(MYSQLI_BOTH))
+                                    {
+                                        echo '<option value="'.$row['ID'].'">'.$row['Value'].'</option>';
+                                    }
+                                ?>
+                              </select>
+                        </div>
                         <div class="form-group">
                           <input type="text" class="form-control" id="amount" name="amount" placeholder="Anzahl" value="1" >
                         </div>

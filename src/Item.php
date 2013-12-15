@@ -13,6 +13,7 @@ class Item {
     public $category;
     public $amount;
     public $descriptionId;
+    public $modification;
     
     public function Item()
     {}

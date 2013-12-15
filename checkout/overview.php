@@ -3,10 +3,10 @@
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     
     include("$root/cagelovers/src/Initializer.php") ;
-    include ("$root/cagelovers/templates/header.php");
+    include("$root/cagelovers/templates/header.php");
+    include("$root/cagelovers/src/db/ArticleSubDB.inc");
     
     $basket = unserialize($_SESSION['basket']);
-    
 ?>
 
 <div class="container">
@@ -39,6 +39,7 @@
                       <th>Artikel</th>
                       <th>Anzahl</th>
                       <th>Preis</th>
+                      <th>Modification</th>
                       <th>Gesamtpreis</th>
                       <th class="last">&#76;&#246;&#115;&#99;&#104;&#101;&#110;</th>
                     </tr>
@@ -46,12 +47,20 @@
                     <?php
                         
                         foreach ($basket->items as &$value) {
-            
+                            
+                            if(isset($value->modification)) {
+                                $currentArticleSub = new ArticleSubDB();
+                                $currentArticleSub = $currentArticleSub->getSpecificArticleSub($value->modification);
+                                $currentArticleSub = $currentArticleSub->fetch_object();
+                            }
+                            
                             echo '<tr>';
                             
                             echo '<td>' . $value->name . '</td>';
                             echo '<td>' . $value->amount . '</td>';
                             echo '<td>' . $value->prize . '.-</td>';
+                            if(isset($value->modification)) echo '<td>' . $currentArticleSub->Value . '</td>';
+                            else echo '<td></td>';
                             echo '<td>' . $value->amount * $value->prize . '.-</td>';
                             echo '<td class="last"><a href="/cagelovers/checkout/overview.php?delete='.$value->id.'" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
                             

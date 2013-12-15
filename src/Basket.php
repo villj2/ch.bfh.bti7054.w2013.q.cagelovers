@@ -109,7 +109,7 @@ class Basket {
         $order = new OrderDB();
         
         foreach ($this->items as &$value) {
-            $order = $order->insertOrder($user->id,getdate(),$user->street,$user->zip,$user->country,$value->id,$value->amount,$paymethod);
+            $order = $order->insertOrder($user->id,getdate(),$user->street,$user->zip,$user->country,$value->id,$value->modification,$value->amount,$paymethod);
         }
         
         // FIXME fetch? insert?
