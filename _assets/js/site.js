@@ -27,4 +27,20 @@ function addListeners(){
         }
         
     });
+    
+    $('#bt-logout').bind('click', function(e) {
+       
+       e.preventDefault();
+       
+       $.ajax({ url: '/cagelovers/profile/index.php',
+         data: {logout: 'true'},
+         type: 'post',
+         success: function(output) {
+                      //console.log(output);
+                      
+                      location.href = "/cagelovers/";
+                  }
+           });
+        
+    });
 }

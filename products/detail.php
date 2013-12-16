@@ -186,9 +186,12 @@
                         <div class="form-group">
                             <select name="modification">
                                 <?php
+                                
                                     while($row = $currentArticleSub->fetch_array(MYSQLI_BOTH))
                                     {
-                                        echo '<option value="'.$row['ID'].'">'.$row['Value'].'</option>';
+                                        if(isset($row)){
+                                            echo '<option value="'.$row['ID'].'">'.$row['Value'].'</option>';
+                                        }
                                     }
                                 ?>
                               </select>

@@ -16,9 +16,15 @@
         if(!isset($_POST['name']) || $_POST['name'] == "") array_push($formErrors, "Name fehlt");
         if(!isset($_POST['street']) || $_POST['street'] == "") array_push($formErrors, "Strasse fehlt");
         if(!isset($_POST['city']) || $_POST['city'] == "") array_push($formErrors, "Ort fehlt");
+        
         if(!isset($_POST['zip']) || $_POST['zip'] == "") array_push($formErrors, "Postleitzahl fehlt");
+        if(!isset($_POST['zip']) || $_POST['zip'] == "" || !preg_match('/^\d{4}$/', $_POST['zip'])) array_push($formErrors, "Postleitzahl nicht korrekt");
+        
         if(!isset($_POST['country']) || $_POST['country'] == "") array_push($formErrors, "Land fehlt");
+        
         if(!isset($_POST['email']) || $_POST['email'] == "") array_push($formErrors, "E-Mail fehlt");
+        if(!isset($_POST['email']) || $_POST['email'] == "" || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) array_push($formErrors, "E-Mail-Adresse ist nicht korrekt");
+        
         if(!isset($_POST['password']) || $_POST['password'] == "") array_push($formErrors, "Passwort fehlt");
         
         if(count($formErrors) == 0) {

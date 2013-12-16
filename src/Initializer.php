@@ -13,8 +13,46 @@ include ("$initRealPath/cagelovers/src/Basket.php");
 include ("$initRealPath/cagelovers/src/Item.php");
 
 // Language Handler
-if((!isset($_GET['lang']) || ($_GET['lang'] != 1 || $_GET['lang'] != 2)) && isset($_GET['lang']) && ($_GET['lang'] == 1 || $_GET['lang'] == 2)) {
-    $_SESSION['lang'] = $_GET['lang'];
+if(isset($_GET['lang']))
+{    
+    if($_GET['lang'] == 1 || $_GET['lang'] == 2)
+    {
+        setLang($_GET['lang']);
+    }
+    else
+    {
+        setLang(1);
+    }
+}
+else
+{
+    if(isset($_COOKIE['Language']))
+    {
+        echo 'cookie set: '.$_COOKIE['Language'];
+        
+        if($_COOKIE['Language'] == "1" || $_COOKIE['Language'] == "2")
+        {
+            setLang($_COOKIE['Language']);
+        }
+        else
+        {
+            setLang(1);
+        }
+    }
+    else
+    {
+        echo 'cookie not set';
+        setLang(1);
+    }
+}
+
+function setLang($lang)
+{
+    $_SESSION['lang'] = $lang;
+    
+    echo 'set cookie to root: '.$lang;
+    
+    setCookie("Language", $lang, time() + 86400, '/');
 }
 
 // instanciate langDict
