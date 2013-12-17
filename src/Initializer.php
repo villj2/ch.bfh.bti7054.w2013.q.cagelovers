@@ -28,10 +28,12 @@ else
 {
     if(isset($_COOKIE['Language']))
     {
-        echo 'cookie set: '.$_COOKIE['Language'];
+        //echo 'cookie set: '.$_COOKIE['Language'];
         
-        if($_COOKIE['Language'] == "1" || $_COOKIE['Language'] == "2")
+        if($_COOKIE['Language'] == "1" || $_COOKIE['Language'] == "2" || $_COOKIE['Language'] == 1 || $_COOKIE['Language'] == 2)
         {
+            //echo 'cookie lang: '.$_COOKIE['Language'];
+            
             setLang($_COOKIE['Language']);
         }
         else
@@ -41,7 +43,7 @@ else
     }
     else
     {
-        echo 'cookie not set';
+        //echo 'cookie not set';
         setLang(1);
     }
 }
@@ -50,7 +52,7 @@ function setLang($lang)
 {
     $_SESSION['lang'] = $lang;
     
-    echo 'set cookie to root: '.$lang;
+    //echo 'set cookie to root: '.$lang;
     
     setCookie("Language", $lang, time() + 86400, '/');
 }

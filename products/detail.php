@@ -47,10 +47,11 @@
     
     if(isset($_GET['id']) && isset($_GET['add']) && $_GET['amount']) {
         
-        $basket = unserialize($_SESSION['basket']);
         
         if(is_null($_SESSION['basket'])) {
             $basket = new Basket();
+        } else {
+            $basket = unserialize($_SESSION['basket']);
         }
         
         // if item is already in basket edit amount
@@ -184,17 +185,26 @@
                     
                     <form role="form" action="/cagelovers/products/detail.php" method="get">
                         <div class="form-group">
-                            <select name="modification">
-                                <?php
-                                
-                                    while($row = $currentArticleSub->fetch_array(MYSQLI_BOTH))
-                                    {
+                            
+                            <?php
+                            
+                                $row = $currentArticleSub->fetch_array(MYSQLI_BOTH);
+                            
+                                if(count($row) > 0) {
+                                    echo '<select name="modification">';
+                                   
+                                    do{
                                         if(isset($row)){
                                             echo '<option value="'.$row['ID'].'">'.$row['Value'].'</option>';
                                         }
                                     }
-                                ?>
-                              </select>
+                                    while($row = $currentArticleSub->fetch_array(MYSQLI_BOTH));
+
+                                    echo '</select>';
+                                }
+                                
+                                    
+                              ?>
                         </div>
                         <div class="form-group">
                           <input type="text" class="form-control" id="amount" name="amount" placeholder="Anzahl" value="1" >
