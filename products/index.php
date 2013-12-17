@@ -20,7 +20,6 @@
 <?php
     include("$root/cagelovers/src/cfg/dbconfig.php");
     
-    
     if(isset($_GET['CategoryID']))
     {
         include("$root/cagelovers/src/db/ArticleDB.inc");

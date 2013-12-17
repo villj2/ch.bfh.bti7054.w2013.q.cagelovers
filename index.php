@@ -21,11 +21,13 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <h2>Featured product</h2>
-                <p><img src="img/products/bed_320x240.jpg" /></p>
-                <p>Let your dreams be guided by Cage. Never slept that good.</p>
-                <p><a class="btn btn-default" href="#">View details</a></p>
+            <div class="checkout">
+                <div class="col-lg-12">
+
+                    <h1>Random Products</h1>
+                <hr />
+
+                </div>
             </div>
         </div>
     </div>
@@ -33,27 +35,60 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div>
-      </div>
+          
+          
+          <?php
+            
+            include("$root/cagelovers/src/cfg/dbconfig.php");
+            include("$root/cagelovers/src/db/ArticleDB.inc");
+            include("$root/cagelovers/src/cfg/dbopen.php");
 
+            $articles = new ArticleDB();
+            $articles = $articles->getAllArticles();
+            
+            $articlesArray = [];
+            
+            while($row = $articles->fetch_array(MYSQLI_BOTH))
+            {
+                $currentArticle = new ArticleDB();
+                $currentArticle = $currentArticle->getSpecificArticle($row['ID']);
+                $currentArticle = $currentArticle->fetch_object();
+
+                array_push($articlesArray, $currentArticle);
+            }
+            
+            // choose random numbers, make sure there are no duplicates
+            $rndNumbers = [];
+            while(count($rndNumbers) < 3) {
+                $rnd = rand(0, count($articlesArray) - 1);
+                
+                if(in_array($rnd, $rndNumbers)) {
+                    continue;
+                } else {
+                    array_push($rndNumbers, $rnd);
+                }
+            }
+            
+            // write articles
+            for($i = 0; $i<count($rndNumbers); $i++) {
+                
+                $curr = $articlesArray[$rndNumbers[$i]];
+                
+                echo '<div class="col-sm-4">';
+                echo "<h2>$curr->Title</h2>";
+                echo "<p>$curr->Description</p>";
+                echo '<p><a class="btn btn-default" href="/cagelovers/products/detail.php?id='.$curr->ID.'">View details</a></p>';
+                echo '</div>';
+            }
+            
+            include("$root/cagelovers/src/cfg/dbclose.php");
+            echo "</div>";
+          
+          ?>
       <hr>
 
       <footer>
-        <p>© Company 2013</p>
+        <p>Julien Villiger / Daniel Inversini 2013</p>
       </footer>
     </div> <!-- /container -->
 
