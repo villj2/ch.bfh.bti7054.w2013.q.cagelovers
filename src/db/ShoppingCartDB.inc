@@ -24,6 +24,10 @@ class ShoppingCartDB extends mysqli{
         return  $this->query("SELECT * FROM tb_shoppingcart");
     }
     
+    public function getAllItemsByOrderID($orderID){
+        return $this->query("SELECT * FROM tb_shoppingcart WHERE OrderID = $orderID");
+    }
+    
     public function getSpecificShoppingCart($id){
          return $this->query("SELECT * FROM tb_shoppingcart WHERE ID = $id");
     }
