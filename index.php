@@ -25,7 +25,6 @@
                 <div class="col-lg-12">
                     <h1>Random Products</h1>
                 <hr />
-
                 </div>
             </div>
         </div>
