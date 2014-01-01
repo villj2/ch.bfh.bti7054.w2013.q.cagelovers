@@ -12,6 +12,18 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <h1><br>pdf output - ORDER ID 1</h1>
+            <br>
+            <?php 
+            echo "<p><a class='btn btn-default'  <a href='pdfOrderOutput.php?ID=1'>ID 1</a>";
+            ?>
+            <hr />
+        </div>
+    </div>    
+
+    
+    <div class="row">
+        <div class="col-lg-12">
             <h1><br>TEST FüR DB CONN</h1>
             <hr />
         </div>
