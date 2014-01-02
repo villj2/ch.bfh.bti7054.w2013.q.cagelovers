@@ -95,8 +95,8 @@
             <div class="col-lg-12">
             
             <?php
-                echo "<h1>$currentArticle->Title</h1>";
-                echo "<h4>$currentArticle->Description</h4>";
+                echo utf8_decode("<h1>$currentArticle->Title</h1>");
+                echo utf8_decode("<h4>$currentArticle->Description</h4>");
             ?>
             <hr />
             
@@ -123,7 +123,7 @@
                                 <td>CHF <?php echo $currentArticle->Price ?>.-</td>
                             </tr>
                             <tr>
-                                <td class="bold">Höhe:</td>
+                                <td class="bold"><?php echo utf8_decode("Höhe:"); ?> </td>
                                 <td><?php echo $currentArticle->Height ?> cm</td>
                             </tr>
                             <tr>
@@ -142,7 +142,7 @@
                             -->
                             <tr>
                                 <td class="bold">Kategorie:</td>
-                                <td><?php echo $currentCat->DescriptionDE ?></td>
+                                <td><?php echo utf8_decode($currentCat->DescriptionDE); ?></td>
                             </tr>
                             
                             <?php
@@ -207,7 +207,8 @@
                               ?>
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" id="amount" name="amount" placeholder="Anzahl" value="1" >
+                           
+                          <input type="text" class="form-control" id="amount" name="amount"  placeholder="Anzahl" value="1"  >
                         </div>
                         <input type="hidden" name="add" value="true">
                         <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">

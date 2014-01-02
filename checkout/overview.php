@@ -7,7 +7,10 @@
     include("$root/cagelovers/templates/header.php");
     include("$root/cagelovers/src/db/ArticleSubDB.inc");
     
-    $basket = unserialize($_SESSION['basket']);
+    if(isset($_SESSION['basket']))
+    {
+        $basket = unserialize($_SESSION['basket']);
+    }
 ?>
 
 <div class="container">

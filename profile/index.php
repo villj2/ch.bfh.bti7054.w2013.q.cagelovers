@@ -47,7 +47,6 @@
           <hr />
           
           <?php 
-          
             echo "$user->street<br />";
             echo "$user->zip $user->city<br />";
             echo "$user->country<br />";

@@ -4,6 +4,10 @@
     
     include("$root/cagelovers/src/Initializer.php") ;
     include ("$root/cagelovers/templates/header.php");
+    
+    $basket = unserialize($_SESSION['basket']);
+    
+    unset($_SESSION['basket']);
 
 ?>
 
@@ -13,7 +17,7 @@
             <div class="col-lg-12">
           
             <h1>Bestellung abgeschickt</h1>
-            <h4>Vielen Dank für deine Bestellung.</h4>
+            <h4><?php echo utf8_decode("Vielen Dank für deine Bestellung.") ?></h4>
             <hr />
             
             <div class="additional-info clearfix">

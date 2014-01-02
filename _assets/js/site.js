@@ -15,16 +15,53 @@ function addListeners(){
             var creditcardName = $('#payment-input-name').val();
             var creditcardNr = $('#payment-input-nr').val();
             
-            location.href = "/cagelovers/checkout/payment.php?creditcard=true&name=" + creditcardName + "&nr=" + creditcardNr;
+            if(($('#shipment-type-1').is(':checked')))
+            {
+                location.href = "/cagelovers/checkout/payment.php?creditcard=true&name=" + creditcardName + "&nr=" + creditcardNr+"&express=true";
+            }
+            else if(($('#shipment-type-2').is(':checked')))
+            {
+                location.href = "/cagelovers/checkout/payment.php?creditcard=true&name=" + creditcardName + "&nr=" + creditcardNr+"&apost=true"
+            }
+            else if(($('#shipment-type-3').is(':checked')))
+            {
+                location.href = "/cagelovers/checkout/payment.php?creditcard=true&name=" + creditcardName + "&nr=" + creditcardNr+"&bpost=true"
+            }            
+            
         }
         else if(($('#payment-type-2').is(':checked')))
         {
-            location.href = "/cagelovers/checkout/payment.php?bill=true";
+            if(($('#shipment-type-1').is(':checked')))
+            {
+                location.href = "/cagelovers/checkout/payment.php?bill=true&express=true";
+            }
+            else if(($('#shipment-type-2').is(':checked')))
+            {
+                 location.href = "/cagelovers/checkout/payment.php?bill=true&apost=true";
+            }
+            else if(($('#shipment-type-3').is(':checked')))
+            {
+                 location.href = "/cagelovers/checkout/payment.php?bill=true&bpost=true";
+            }
         }
         else if(($('#payment-type-3').is(':checked')))
         {
-            location.href = "/cagelovers/checkout/payment.php?envelope=true";
+            
+            if(($('#shipment-type-1').is(':checked')))
+            {
+                location.href = "/cagelovers/checkout/payment.php?envelope=true&express=true";
+            }
+            else if(($('#shipment-type-2').is(':checked')))
+            {
+                 location.href = "/cagelovers/checkout/payment.php?envelope=true&apost=true";
+            }
+            else if(($('#shipment-type-3').is(':checked')))
+            {
+                 location.href = "/cagelovers/checkout/payment.php?envelope=true&bpost=true";
+            }            
         }
+        
+
         
     });
     

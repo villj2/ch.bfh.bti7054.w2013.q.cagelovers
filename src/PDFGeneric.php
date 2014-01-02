@@ -61,6 +61,17 @@ class PDFGeneric extends FPDF{
     public $footerStartY;
     
     
+    public $tableHeaderFontSize;
+    public $tableHeaderFontName;
+    public $tableHeaderFontStyle;
+    public $tableStartX;
+    public $tableStartY;
+    
+    public $tableDataFontSize;
+    public $tableDataFontName;
+    public $tableDataFontStyle;
+    
+    
     function Output($name = '', $dest = '') {
         $this->fpdf->Output($name, $dest);
 
@@ -108,7 +119,7 @@ class PDFGeneric extends FPDF{
     function renderText02($txt){
         $this->fpdf->SetXY($this->text02StartX,$this->text02StartY );
         $this->fpdf->SetFont($this->text02FontName,$this->text02FontStyle,$this->text02FontSize );
-        $this->fpdf->MultiCell(200,20,$txt,1,'L',false);
+        $this->fpdf->MultiCell(190,20,$txt,0,'L',false);
         $this->fpdf->ln();
         
     }
@@ -130,7 +141,6 @@ class PDFGeneric extends FPDF{
      */
     var $ProcessingTable=false;
     var $aCols=array();
-    var $TableX ;
     var $HeaderColor;
     var $RowColors;
     var $ColorIndex;
@@ -144,8 +154,8 @@ class PDFGeneric extends FPDF{
 
     function TableHeader()
     {
-        $this->fpdf->SetFont('Arial', 'B', 12);
-        $this->fpdf->SetX(10);
+        $this->fpdf->SetFont($this->tableHeaderFontName,$this->tableHeaderFontStyle,$this->tableHeaderFontSize);
+        $this->fpdf->SetXY($this->tableStartX,$this->tableStartY );
         $fill=!empty($this->HeaderColor);
         if($fill)
             $this->fpdf->SetFillColor($this->HeaderColor[0], $this->HeaderColor[1], $this->HeaderColor[2]);
@@ -156,7 +166,8 @@ class PDFGeneric extends FPDF{
 
     function Row($data)
     {
-        $this->fpdf->SetX(10);
+        $this->fpdf->SetFont($this->tableDataFontName,$this->tableDataFontStyle,$this->tableDataFontSize);
+        $this->fpdf->SetX($this->tableStartX);
         $ci=$this->ColorIndex;
         $fill=!empty($this->RowColors[$ci]);
         if($fill)

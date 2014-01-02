@@ -28,6 +28,14 @@ class OrderDB extends mysqli{
    public function getSpecificOrder($id){
         return $this->query("SELECT * FROM tb_order WHERE ID = $id");
    }
+   
+   public function getSpecificOrderByUser($userID){
+       return $this->query("SELECT * FROM tb_order WHERE UserID = $userID");
+   }
+   
+   public function getSpecificOrderByUserForGUI($userID){
+       return $this->query("SELECT * FROM view_GUIOrder WHERE UserID = $userID");
+   }
 
    public function deleteOrder($id){
          $this->query("DELETE FROM tb_order WHERE ID = $id");
@@ -41,10 +49,10 @@ class OrderDB extends mysqli{
      
    }
     */
-   public function insertOrder($userID,$orderDate,$shippingStreet,$shippingZIP,$shippingCity,$shippingCountry,$articleId,$modification,$amount,$paymethod)
+   public function insertOrder($userID,$status,$orderDate,$shippingDate,$shippingMethod,$shippingName1,$shippingName2,$shippingStreet,$shippingZIP,$shippingCity,$shippingCountry)
    {
-         $this->query("INSERT INTO tb_order(UserID,OrderDate,ShippingStreet,ShippingZIP,ShippingCity,ShippingCountry,ArticleId,Amount,Paymethod)
-                        VALUES ('$userID','$orderDate','$shippingStreet','$shippingZIP','$shippingCity','$shippingCountry','$articleId','$amount','$paymethod')");
+         $this->query("INSERT INTO tb_order(UserID,Status,OrderDate,ShippingDate,ShippingMethod,ShippingName1,ShippingName2,ShippingStreet,ShippingZIP,ShippingCity,ShippingCountry)
+                        VALUES ('$userID','$status','$orderDate','$shippingDate','$shippingMethod','$shippingName1','$shippingName2', '$shippingStreet','$shippingZIP','$shippingCity','$shippingCountry')");
      
    }
 }

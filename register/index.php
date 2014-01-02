@@ -41,7 +41,7 @@
             $user->email = $_POST['email'];
             $user->password = $_POST['password'];
             
-            $_SESSION['user'] = serialize($user);
+            
             
             
             // save to db
@@ -54,8 +54,10 @@
             $pwHash = md5($user->password);
             
             $user2Save->insertUser($user->email,$pwHash, $user->forename, $user->name, $user->street, $user->city, $user->zip, $user->country);
+            $user->id = $user2Save->insert_id;
             
             
+            $_SESSION['user'] = serialize($user);
             include("$root/cagelovers/src/cfg/dbclose.php");
              
             // redirect

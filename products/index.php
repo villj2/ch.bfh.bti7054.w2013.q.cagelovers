@@ -40,9 +40,9 @@
             $currentArticle = $currentArticle->fetch_object();
             
             echo '<div class="col-lg-4">';
-            echo "<h2>$currentArticle->Title</h2>";
-            echo "<p>$currentArticle->Description</p>";
-            echo '<p><a class="btn btn-default" href="/cagelovers/products/detail.php?id='.$currentArticle->ID.'">View details</a></p>';
+            echo utf8_decode("<h2>$currentArticle->Title</h2>");
+            echo utf8_decode("<p>$currentArticle->Description</p>");
+            echo utf8_decode('<p><a class="btn btn-default" href="/cagelovers/products/detail.php?id='.$currentArticle->ID.'">View details</a></p>');
             echo '</div>';
             
         }
@@ -67,7 +67,7 @@
         {
             echo "<div class='col-lg-4'>";
 
-            echo "<p><a class='btn btn-default'  <a href='category.php?rootID=".$row['ID']."'>".$row['DescriptionDE']."</a>";
+            echo utf8_decode("<p><a class='btn btn-default'  <a href='category.php?rootID=".$row['ID']."'>".$row['DescriptionDE']."</a>");
 
             echo "</div>";
             //$linkAdr = '<a href="category.php?rootID='.$row['ID'].'>'.$row['DescriptionDE'].'</a>';

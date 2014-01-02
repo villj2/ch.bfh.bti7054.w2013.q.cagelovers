@@ -73,36 +73,38 @@ class PDFOrder extends PDFGeneric{
         $pdf->text02FontSize = 10;
         $pdf->text02FontStyle = 'B';
         $pdf->text02StartX = 10;
-        $pdf->text02StartY = 10;
+        $pdf->text02StartY = 200;
+        
+        $pdf->tableHeaderFontName = 'Courier';
+        $pdf->tableHeaderFontSize = 12;
+        $pdf->tableHeaderFontStyle = 'B';
+        $pdf->tableDataFontName = 'Courier';
+        $pdf->tableDataFontSize = 8;
+        $pdf->tableDataFontStyle = 'B';        
+        $pdf->tableStartX = 10;
+        $pdf->tableStartY = 140;
         
         
         
-        $pdf->renderHeader("Auftragsbestaetigung Auftrag [".$this->orderID."]");
         
+        $pdf->renderHeader(utf8_decode("Auftragsbestätigung Auftrag [".$this->orderID."]"));
         
         $pdf->renderAdress($addressText);
         
         $pdf->renderFooter("CageLovers - release your cage!");
         
-        $pdf->renderText01("Sehr geehrte Herr/Frau ".$this->oOrder->ShippingName1." ".$this->oOrder->ShippingName2,
-                "Ihre Bestelldetails wie folgt.");
+        $tmptxt = "Sehr geehrte Herr/Frau ".$this->oOrder->ShippingName1." ".$this->oOrder->ShippingName2;
+        
+        $pdf->renderText01(utf8_decode($tmptxt),"Ihre Bestelldetails wie folgt.");
 
                 //Connect to database
         mysql_connect('login-5.hoststar.ch', 'web345', 'biobauer22');
         mysql_select_db('usr_web345_12');
 
-        //$pdf->fpdf->AddPage();
-        //First table: put all columns automatically
-        //$pdf->Table("select Description,Title from view_PDFOrder where orderID = ".$this->orderID);
-        //$pdf->fpdf->AddPage();
-        //Second table: specify 3 columns
-       
-        
-        
         $pdf->AddCol('Title', 55,'Titel', 'C');
         $pdf->AddCol('Description', 55,'Beschrieb', 'C');
         $pdf->AddCol('Price', 20,'Preis', 'R');
-        $pdf->AddCol('Value', 20,'Details', 'C');
+        $pdf->AddCol('Value', 35,'Details', 'C');
         $pdf->AddCol('Count', 20,'Anzahl', 'R');  
         
         $prop=array('HeaderColor'=>array(255,150,100),
@@ -110,8 +112,9 @@ class PDFOrder extends PDFGeneric{
                         'color2'=>array(255,255,255),
                         );
         
-        
         $pdf->Table("select Title,Description,Price,Value,Count from view_PDFOrder where orderID = ".$this->orderID,$prop);
+        
+        $pdf->renderText02(utf8_decode("Vielen Dank für die Zahlung innert 30 Tagen."));
         $pdf->fpdf->Output();
         
         

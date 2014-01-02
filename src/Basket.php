@@ -2,6 +2,7 @@
 
 include("$root/cagelovers/src/cfg/dbconfig.php");
 include("$root/cagelovers/src/db/OrderDB.inc");
+include("$root/cagelovers/src/db/ShoppingCartDB.inc");
 include("$root/cagelovers/src/cfg/dbopen.php");
 
 /**
@@ -102,18 +103,27 @@ class Basket {
         }
     }
     
-    public function makeOrder($paymethod) {
+    public function makeOrder($paymethod,$shippingmethod) {
         
         $user = unserialize($_SESSION['user']);
         
         $order = new OrderDB();
+        $shoppingCart = new ShoppingCartDB();
         
-        foreach ($this->items as &$value) {
-            $order = $order->insertOrder($user->id,getdate(),$user->street,$user->zip,$user->country,$value->id,$value->modification,$value->amount,$paymethod);
+        
+        $orderDate = date("d.m.Y");
+        $shippingDate = date("d.m.Y",strtotime("+1 week"));
+        
+        $order->insertOrder($user->id,"ERF",$orderDate,$shippingDate,$shippingmethod,$user->forename,$user->name,$user->street,$user->zip,$user->city,$user->country);
+        $orderID = $order->insert_id;
+        
+        foreach ($this->items as $value) {
+            $shoppingCart->insertShoppingCart($orderID, $value->id, $value->modification, $value->amount);
+            //$order = $order->insertOrder($user->id,getdate(),$user->street,$user->zip,$user->city,$user->country,$value->id,$value->modification,$value->amount,$paymethod);
         }
         
         // FIXME fetch? insert?
-        $order = $order->fetch_object();
+        //$order = $order->fetch_object();
     }
 }
 

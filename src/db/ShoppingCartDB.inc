@@ -37,7 +37,7 @@ class ShoppingCartDB extends mysqli{
     }
     
     public function insertShoppingCart($orderID,$articleID,$articleSubID,$count){
-          $this->query("INSERT INTO tb_shoppingcart(OrderID,ArticleID,ArticleSubID) 
+          $this->query("INSERT INTO tb_shoppingcart(OrderID,ArticleID,ArticleSubID,Count) 
                                 VALUES ('$orderID','$articleID','$articleSubID','$count')");
     }
     

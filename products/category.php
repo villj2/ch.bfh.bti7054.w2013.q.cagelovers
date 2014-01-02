@@ -39,7 +39,7 @@
             {
                 echo "<div class='col-lg-4'>";
 
-                echo "<p><a class='btn btn-default'  <a href='category.php?ID=".$row['ID']."'>".$row['DescriptionDE']."</a>";
+                echo utf8_decode("<p><a class='btn btn-default'  <a href='category.php?ID=".$row['ID']."'>".$row['DescriptionDE']."</a>");
 
                 echo "</div>";
                 //$linkAdr = '<a href="category.php?rootID='.$row['ID'].'>'.$row['DescriptionDE'].'</a>';

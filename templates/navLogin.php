@@ -39,6 +39,8 @@ if(isset($_POST['login'])) {
             $user->street = $row['street'];         
             $user->country = $row['country'];
             $user->zip = $row['zip'];
+            
+            $user->id = $row['id'];
 
             
             include("$root/cagelovers/src/cfg/dbclose.php");
