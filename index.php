@@ -73,11 +73,15 @@
                 $curr = $articlesArray[$rndNumbers[$i]];
                 
                 echo '<div class="col-sm-4">';
-                echo "<h2>$curr->Title</h2>";
-                echo "<p>$curr->Description</p>";
-                echo '<p><a class="btn btn-default" href="/cagelovers/products/detail.php?id='.$curr->ID.'">View details</a></p>';
+                echo utf8_decode("<h2>$curr->Title</h2>");
+                echo utf8_decode("<p>$curr->Description</p>");
+                echo utf8_decode('<p><a class="btn btn-default" href="/cagelovers/products/detail.php?id='.$curr->ID.'">View details</a></p>');
                 echo '</div>';
             }
+            
+            //echo webservice
+            
+            include("$root/cagelovers/src/WebServiceConnector.php");
             
             include("$root/cagelovers/src/cfg/dbclose.php");
             echo "</div>";

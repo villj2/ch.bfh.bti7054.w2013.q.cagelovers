@@ -117,6 +117,10 @@ class PDFOrder extends PDFGeneric{
         $pdf->renderText02(utf8_decode("Vielen Dank für die Zahlung innert 30 Tagen."));
         $pdf->fpdf->Output();
         
+        //save second on server
+        $filename = "pdf/Order_".$this->orderID."_".date("Y-m-d_H_i_s", time()).".pdf";
+        $pdf->fpdf->Output($filename,'F');
+        
         
     }
     

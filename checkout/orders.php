@@ -33,27 +33,28 @@
                       <th>Lieferdatum</th>
                       <th>Versandmethode</th>
                       <th>Adresse</th>
-                      <th class="last">&#76;&#246;&#115;&#99;&#104;&#101;&#110;</th>
+                      <th class="last">PDF</th>
                     </tr>
             
                     <?php 
                     
-                    echo $user->id;
-                    
-                    
+                                    
                     $orders = new OrderDB();
                     $orders = $orders->getSpecificOrderByUserForGUI($user->id);
                     
                     
                     while ($row = $orders->fetch_array(MYSQLI_BOTH)) 
                     {
-                      print $row['ID'] .'<br />';
-                      print $row['UserID'] .'<br />';
-                      print $row['Status'] .'<br />';
-                      print $row['Bestelldatum'] .'<br />';
-                      print $row['Lieferdatum'] .'<br />';
-                      print $row['Versandmethode'] .'<br />';
-                      print $row['Adresse'] .'<br />';
+                      echo '<tr>';
+                      echo '<td>' .  $row['ID'] .'</td>';
+                      echo '<td>' .  $row['Status'] .'</td>';
+                      echo '<td>' .  $row['Bestelldatum'] .'</td>';
+                      echo '<td>' .  $row['Lieferdatum'] .'</td>';
+                      echo '<td>' .  $row['Versandmethode'] .'</td>';
+                      echo '<td>' .  $row['Adresse'] .'</td>';
+                      echo '<td class="last"><a href="/cagelovers/print/pdfOrderOutput.php?orderID='.$row['ID'].'" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
+
+                      echo '</tr>';
                     }    
                      
                                    
