@@ -7,6 +7,7 @@
     {
 
         $pdf = new PDFOrder($_GET['orderID']);
+        $pdf->Output();
     }
 
 ?> 

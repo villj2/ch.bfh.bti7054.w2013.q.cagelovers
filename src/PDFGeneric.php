@@ -73,6 +73,8 @@ class PDFGeneric extends FPDF{
     
     
     function Output($name = '', $dest = '') {
+        //clean output..
+        ob_clean(); 
         $this->fpdf->Output($name, $dest);
 
     }

@@ -12,8 +12,8 @@
  */
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-include("$root/cagelovers/src/db/OrderDB.inc");
-include("$root/cagelovers/src/db/ShoppingCartDB.inc");
+require_once ("$root/cagelovers/src/db/OrderDB.inc");
+require_once ("$root/cagelovers/src/db/ShoppingCartDB.inc");
 include("$root/cagelovers/src/PDFGeneric.php");
 
 class PDFOrder extends PDFGeneric{
@@ -22,10 +22,19 @@ class PDFOrder extends PDFGeneric{
     public $orderID;
     public $oOrder;
     public $oShoppingCart;
+    public $filename;
+    
+    public $fpdf;
     
     public function __construct($orderID) {
         $this->orderID = $orderID;
         $this->init();
+    }
+    
+    public function save2File()
+    {
+        echo $this->filename;
+        //$this->fpdf->Output("\test.pdf", 'F');        
     }
     
     function init(){
@@ -115,11 +124,16 @@ class PDFOrder extends PDFGeneric{
         $pdf->Table("select Title,Description,Price,Value,Count from view_PDFOrder where orderID = ".$this->orderID,$prop);
         
         $pdf->renderText02(utf8_decode("Vielen Dank für die Zahlung innert 30 Tagen."));
-        $pdf->fpdf->Output();
+        //$pdf->fpdf->Output();
         
         //save second on server
         $filename = "pdf/Order_".$this->orderID."_".date("Y-m-d_H_i_s", time()).".pdf";
-        $pdf->fpdf->Output($filename,'F');
+        $this->filename = $filename;
+        //ob_clean();
+        //$pdf->Output($filename, 'F');
+        
+        $this->fpdf = $pdf;
+        
         
         
     }

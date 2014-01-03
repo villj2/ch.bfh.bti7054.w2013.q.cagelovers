@@ -85,6 +85,8 @@
     if($isValid == 1){
         $basket->makeOrder($myPaymentMethod,$myShippingMethod);
         header("Location: /cagelovers/checkout/confirmation.php");
+        
+
         exit;
     }
 

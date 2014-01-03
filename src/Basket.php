@@ -4,6 +4,9 @@ include("$root/cagelovers/src/cfg/dbconfig.php");
 include("$root/cagelovers/src/db/OrderDB.inc");
 include("$root/cagelovers/src/db/ShoppingCartDB.inc");
 include("$root/cagelovers/src/cfg/dbopen.php");
+include("$root/cagelovers/src/PDFOrder.php");
+include("$root/cagelovers/src/MailHelper.php");
+
 
 /**
  * Description of Basket
@@ -122,8 +125,20 @@ class Basket {
             //$order = $order->insertOrder($user->id,getdate(),$user->street,$user->zip,$user->city,$user->country,$value->id,$value->modification,$value->amount,$paymethod);
         }
         
-        // FIXME fetch? insert?
-        //$order = $order->fetch_object();
+        $pdf = new PDFOrder($orderID);
+        //$pdf->fpdf->Output();
+        //$pdf->fpdf->Output($pdf->filename,'F');
+        
+        $pdf->save2File();
+        
+        //send mail
+        $mailHelper = new MailHelper();
+        
+        
+        $subject = utf8_decode('Vielen Dank für Ihre Bestellung');
+        $body = 'Dieses Mail wurde automatisch generiert, bitte beantworten Sie es nicht.';
+        echo $pdf->filename;
+        $mailHelper->sendMail($user->email, $subject , $body,$pdf->filename);
     }
 }
 
