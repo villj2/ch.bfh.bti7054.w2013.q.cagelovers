@@ -126,9 +126,8 @@ class Basket {
         }
         
         $pdf = new PDFOrder($orderID);
-        //$pdf->fpdf->Output();
-        //$pdf->fpdf->Output($pdf->filename,'F');
-        
+      
+        //does not work -.-
         $pdf->save2File();
         
         //send mail
@@ -137,7 +136,7 @@ class Basket {
         
         $subject = utf8_decode('Vielen Dank für Ihre Bestellung');
         $body = 'Dieses Mail wurde automatisch generiert, bitte beantworten Sie es nicht.';
-        echo $pdf->filename;
+        //echo $pdf->filename;
         $mailHelper->sendMail($user->email, $subject , $body,$pdf->filename);
     }
 }

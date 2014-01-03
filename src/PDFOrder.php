@@ -33,8 +33,8 @@ class PDFOrder extends PDFGeneric{
     
     public function save2File()
     {
-        echo $this->filename;
-        //$this->fpdf->Output("\test.pdf", 'F');        
+        
+        $this->fpdf->Output($this->filename, 'F');        
     }
     
     function init(){
@@ -127,7 +127,7 @@ class PDFOrder extends PDFGeneric{
         //$pdf->fpdf->Output();
         
         //save second on server
-        $filename = "pdf/Order_".$this->orderID."_".date("Y-m-d_H_i_s", time()).".pdf";
+        $filename = "$root/cagelovers/print/pdf/Order_".$this->orderID."_".date("Y-m-d_H_i_s", time()).".pdf";
         $this->filename = $filename;
         //ob_clean();
         //$pdf->Output($filename, 'F');

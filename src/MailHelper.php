@@ -13,6 +13,8 @@
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require("$root/cagelovers/src/ext/PHPMailer/class.phpmailer.php");
+require("$root/cagelovers/src/db/MailDB.inc");
+require("$root/cagelovers/src/db/MailAttachmentDB.inc");
 
 class MailHelper {
     
@@ -51,10 +53,14 @@ class MailHelper {
 
         //no echo for production
         if(!$this->mail->Send()) {
-        //echo 'Message was not sent.';
-        //echo 'Mailer error: ' . $mail->ErrorInfo;
+            
         } else {
-        //echo 'Message has been sent.';
+            $dbMail = new MailDB();
+            $dbMail->insertMail("BES", $to, "", "", $subject, $body, 1, date("d.m.Y"));
+            $dbMailID = $dbMail->insert_id;
+            
+            $dbMailAttachment = new MailAttachmentDB();
+            $dbMailAttachment->insertMailAttachment($dbMailID, $attachment);
         }
     }
     
