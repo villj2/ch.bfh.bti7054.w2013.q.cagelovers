@@ -128,7 +128,7 @@ class Basket {
         $pdf = new PDFOrder($orderID);
       
         //does not work -.-
-        $pdf->save2File();
+        //$pdf->save2File();
         
         //send mail
         $mailHelper = new MailHelper();

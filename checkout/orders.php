@@ -41,22 +41,23 @@
                                     
                     $orders = new OrderDB();
                     $orders = $orders->getSpecificOrderByUserForGUI($user->id);
-                    
-                    
-                    while ($row = $orders->fetch_array(MYSQLI_BOTH)) 
+                    if(!$orders == false)
                     {
-                      echo '<tr>';
-                      echo '<td>' .  $row['ID'] .'</td>';
-                      echo '<td>' .  $row['Status'] .'</td>';
-                      echo '<td>' .  $row['Bestelldatum'] .'</td>';
-                      echo '<td>' .  $row['Lieferdatum'] .'</td>';
-                      echo '<td>' .  $row['Versandmethode'] .'</td>';
-                      echo '<td>' .  $row['Adresse'] .'</td>';
-                      echo '<td class="last"><a href="/cagelovers/print/pdfOrderOutput.php?orderID='.$row['ID'].'" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
 
-                      echo '</tr>';
-                    }    
-                     
+                        while ($row = $orders->fetch_array(MYSQLI_BOTH)) 
+                        {
+                          echo '<tr>';
+                          echo '<td>' .  $row['ID'] .'</td>';
+                          echo '<td>' .  $row['Status'] .'</td>';
+                          echo '<td>' .  $row['Bestelldatum'] .'</td>';
+                          echo '<td>' .  $row['Lieferdatum'] .'</td>';
+                          echo '<td>' .  $row['Versandmethode'] .'</td>';
+                          echo '<td>' .  $row['Adresse'] .'</td>';
+                          echo '<td class="last"><a href="/cagelovers/print/pdfOrderOutput.php?orderID='.$row['ID'].'" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
+
+                          echo '</tr>';
+                        }    
+                    }
                                    
                     ?>
             </div>
