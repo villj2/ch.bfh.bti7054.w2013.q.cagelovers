@@ -48,7 +48,7 @@
     if(isset($_GET['id']) && isset($_GET['add']) && $_GET['amount']) {
         
         
-        if(is_null($_SESSION['basket'])) {
+        if(!isset($_SESSION['basket'])) {
             $basket = new Basket();
         } else {
             $basket = unserialize($_SESSION['basket']);
