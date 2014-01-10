@@ -15,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12 faq">
-            <div class="question">Ist Inversini häufig in den Ferien?</div>
+            <div class="question"><?php echo utf8_decode("Ist Inversini häufig in den Ferien?"); ?></div>
             <div class="answer">Ja.</div>
             <div class="question">Goat goat?</div>
             <div class="answer">Goat.</div>

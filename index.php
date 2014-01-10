@@ -79,19 +79,35 @@
                 echo '</div>';
             }
             
-            //echo webservice
-            
-            include("$root/cagelovers/src/WebServiceConnector.php");
-            
             include("$root/cagelovers/src/cfg/dbclose.php");
             echo "</div>";
           
           ?>
       <hr>
 
-      <footer>
-        <p>Julien Villiger / Daniel Inversini 2013</p>
-      </footer>
-    </div> <!-- /container -->
+      
+    </div>
+      
+      <div class="container">
+        <div class="row">
+            <div class="checkout">
+                <div class="col-lg-12">
+                    <h3>SOAP Quote of the Day</h3>
+                    
+                    <?php
+                    //echo webservice
+            
+                    include("$root/cagelovers/src/WebServiceConnector.php");
+                    ?>
+                <hr />
+                </div>
+            </div>
+        </div>
+          
+          <footer>
+            <p>Julien Villiger / Daniel Inversini 2013</p>
+          </footer>
+    </div>
+      <!-- /container -->
 
 <?php include("templates/footer.php") ?>

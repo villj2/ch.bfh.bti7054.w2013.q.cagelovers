@@ -29,7 +29,7 @@
                     <tr>
                       <th>ID</th>
                       <th>Status</th>
-                      <th>Bestelldatum</th
+                      <th>Bestelldatum</th>
                       <th>Lieferdatum</th>
                       <th>Versandmethode</th>
                       <th>Adresse</th>
@@ -43,7 +43,6 @@
                     $orders = $orders->getSpecificOrderByUserForGUI($user->id);
                     if(!$orders == false)
                     {
-
                         while ($row = $orders->fetch_array(MYSQLI_BOTH)) 
                         {
                           echo '<tr>';
@@ -53,7 +52,7 @@
                           echo '<td>' .  $row['Lieferdatum'] .'</td>';
                           echo '<td>' .  $row['Versandmethode'] .'</td>';
                           echo '<td>' .  $row['Adresse'] .'</td>';
-                          echo '<td class="last"><a href="/cagelovers/print/pdfOrderOutput.php?orderID='.$row['ID'].'" class="icon-delete glyphicon glyphicon-remove-circle"></a></td>'; 
+                          echo '<td class="last"><a href="/cagelovers/print/pdfOrderOutput.php?orderID='.$row['ID'].'" target="_blank">info</a></td>'; 
 
                           echo '</tr>';
                         }    

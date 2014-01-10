@@ -59,6 +59,11 @@ class Basket {
         return $prizeTotal;
     }
     
+    public function hasItems() {
+        
+        return count($this->items) > 0;
+    }
+    
     public function hasItem($id) {
         
         $retval = false;

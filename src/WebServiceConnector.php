@@ -20,10 +20,8 @@
     
     //var_dump($array);
 
-    print "
-      <br>
-        <h1>" . $array->QuoteOfTheDay  . "</h1>
-          <h2>" . $array->Author. "</h2>";
+    print "<div>" . $array->QuoteOfTheDay  . "</div>
+          <div>" . $array->Author. "</div>";
          
     
 ?>

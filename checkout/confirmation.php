@@ -5,7 +5,7 @@
     include("$root/cagelovers/src/Initializer.php") ;
     include ("$root/cagelovers/templates/header.php");
     
-    $basket = unserialize($_SESSION['basket']);
+    if(isset($_SESSION['basket'])) $basket = unserialize($_SESSION['basket']);
     
     unset($_SESSION['basket']);
 

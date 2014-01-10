@@ -8,6 +8,6 @@
     <?php echo '<script src="/cagelovers/_assets/js/bootstrap-formhelpers.min.js"></script>' ?>
     <?php echo '<script src="/cagelovers/_assets/js/bootstrap.js"></script>' ?>
     <?php echo '<script src="/cagelovers/_assets/js/site.js"></script>' ?>
-
+    
   </body>
 </html>
