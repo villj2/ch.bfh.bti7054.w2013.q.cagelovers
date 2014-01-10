@@ -143,7 +143,7 @@
                         <li>
                           <label>
                             <input type="radio" name="paymentRadios" value="option3" id="payment-type-3">
-                            <span>Brief in einem Umschlag</span>
+                            <span>Geld in einem Umschlag</span>
                           </label>
                             <div class="infos">Schicken Sie uns das Geld in einem Umschlag.</div>
                         </li>

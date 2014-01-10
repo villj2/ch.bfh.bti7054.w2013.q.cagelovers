@@ -40,7 +40,7 @@ if(isset($_POST['login'])) {
             $user->country = $row['country'];
             $user->zip = $row['zip'];
             
-            $user->id = $row['id'];
+            $user->id = $row['ID'];
 
             
             include("$root/cagelovers/src/cfg/dbclose.php");

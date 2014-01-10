@@ -33,8 +33,7 @@ class PDFOrder extends PDFGeneric{
     
     public function save2File()
     {
-        
-        $this->fpdf->Output($this->filename, 'F');        
+        $this->fpdf->Output($_SERVER['DOCUMENT_ROOT'].$this->filename, 'F');        
     }
     
     function init(){

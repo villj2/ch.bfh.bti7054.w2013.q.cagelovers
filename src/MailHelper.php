@@ -49,7 +49,7 @@ class MailHelper {
         $this->mail->Body     = $body;
         $this->mail->WordWrap = 50;  
         
-        $this->mail->AddAttachment($attachment);
+        $this->mail->AddAttachment($_SERVER['DOCUMENT_ROOT'].$attachment);
 
         //no echo for production
         if(!$this->mail->Send()) {

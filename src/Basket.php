@@ -118,6 +118,7 @@ class Basket {
         $shippingDate = date("d.m.Y",strtotime("+1 week"));
         
         $order->insertOrder($user->id,"ERF",$orderDate,$shippingDate,$shippingmethod,$user->forename,$user->name,$user->street,$user->zip,$user->city,$user->country);
+        
         $orderID = $order->insert_id;
         
         foreach ($this->items as $value) {
@@ -126,9 +127,7 @@ class Basket {
         }
         
         $pdf = new PDFOrder($orderID);
-      
-        //does not work -.-
-        //$pdf->save2File();
+        $pdf->save2File();
         
         //send mail
         $mailHelper = new MailHelper();

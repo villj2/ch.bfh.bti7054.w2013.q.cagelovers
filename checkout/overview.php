@@ -11,6 +11,8 @@
     {
         $basket = unserialize($_SESSION['basket']);
     }
+    
+    $user = unserialize($_SESSION['user']);
 ?>
 
 <div class="container">
