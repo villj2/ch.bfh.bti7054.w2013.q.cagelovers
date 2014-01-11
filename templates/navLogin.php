@@ -52,16 +52,13 @@ if(isset($_POST['login'])) {
             exit;
         }
         else {
-             echo "login FAIL DB";
+             //echo "login FAIL DB";
+             echo "<div class='hidden alert-info'>Benutzername oder Passwort nicht korrekt.</div>";
         }
-        
-                
-        
-    
         
     } else {
         
-        echo "login FAIL";
+        echo "<div class='hidden alert-info'>Benutzername oder Passwort nicht korrekt.</div>";
     } 
 }
 

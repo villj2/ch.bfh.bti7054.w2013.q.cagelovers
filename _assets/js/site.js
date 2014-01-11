@@ -3,6 +3,8 @@ $('document').ready(function() {
     console.log("doc loaded, ready to cage the world");
     
     addListeners();
+    
+    showAlerts();
 });
 
 function addListeners(){
@@ -80,4 +82,11 @@ function addListeners(){
            });
         
     });
+}
+
+function showAlerts() {
+    
+    if($('.alert-info').length > 0) {
+        alert($('.alert-info').text());
+    }
 }
